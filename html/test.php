@@ -1,5 +1,5 @@
 <?php
-
+echo '<h1>All color names</h1>';
 require_once('db_properties.php');
 $connection = new mysqli($servername, $usernameSQL, $passwordSQL, $dbname);
 if ($connection->connect_error)
