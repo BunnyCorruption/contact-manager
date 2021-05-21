@@ -7,6 +7,7 @@
     <title>Pull Latest</title>
 </head>
 <body>
+    <!-- testing discord webhook -->
     <form action="update.php" method="post">
         <button name="update" value="grapefruit" type="submit">Pull latest</button>
     </form>
