@@ -13,7 +13,7 @@
     <?php
     if (isset($_POST['update']) && !strcmp($_POST['update'], "grapefruit"))
     {
-        $stdout = shell_exec('cd /var/www && /usr/bin/git pull origin main');
+        $stdout = shell_exec('cd /var/www && /usr/bin/git pull origin main 2>&1');
         echo "<code>$stdout</code>";
         echo "<br>";
         echo "<p><a href='index.html'>Back to index.html</a></p>";
