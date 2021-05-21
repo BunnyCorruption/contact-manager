@@ -8,7 +8,7 @@
 </head>
 <body>
     <form action="update.php" method="post">
-        <button name="update" value="grapefruit" type="submit"></button>
+        <button name="update" value="grapefruit" type="submit">Pull latest</button>
     </form>
     <?php
     if (isset($_POST['update']) && !strcmp($_POST['update'], "grapefruit"))
