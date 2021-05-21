@@ -7,11 +7,20 @@
     <title>Register</title>
 </head>
 <body>
-    <h1>Please Input Registration Information Below</h1>
-    <input type="text" placeholder="First Name">
-    <input type="text" placeholder="Last Name">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="User Login">
-    <input type="text" placeholder="Password">
+    <div id="registration">
+        <span id="innerTitle">Please Input Registration Information Below</span>
+        <input type="text" placeholder="First Name">
+        <br>
+        <input type="text" placeholder="Last Name">
+        <br>
+        <input type="text" placeholder="Email">
+        <br>
+        <input type="text" placeholder="User Login">
+        <br>
+        <input type="text" placeholder="Password">
+        <br>
+        <button type="button" id="registerButton" class="buttons" onclick="doRegistration();">Register</button>
+        <span id="registrationResult"></span>
+    </div>
 </body>
 </html>
