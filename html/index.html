@@ -8,12 +8,15 @@
 </head>
 <body>
   <h1>Welcome to Contact Manager</h1>
-  <h2>Please Login</h2>
-  <div>
-    <input type="text" placeholder="Input User Login">
+  <div id="loginDiv">
+    <span id="innerTitle">Please Log In</span>
+    <input type="text" placeholder="Input Username">
+    <br>
     <input type="password" placeholder="Input Password">
+    <br>
     <h3>If you do not have a login, please <a href=register.html>register</a>.</h3>
+    <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Log In</button>
+    <span id="loginResult"></span>
   </div>
-<input type="submit" value="Sign In">
 </body>
 </html>
