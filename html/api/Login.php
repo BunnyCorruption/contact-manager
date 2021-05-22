@@ -16,8 +16,7 @@ $inData = getRequestInfo();
 # The inData array has the wrong number of elements, or the required 'login' and 'password' are missing
 if ((count($inData) != 2) || (!isset($inData["login"]) || !isset($inData["password"])))
 {
-    http_response_code(400);
-    returnWithError("Bad Login Request");
+    returnWithError("Bad Login Request", 400);
 }
 
 $id = 0;
@@ -70,18 +69,18 @@ else
     
 }
 
-function sendResultInfoAsJson( $obj )
+function sendResultInfoAsJson( $obj, $response_code = 200)
 {
     header('Content-type: application/json');
     echo $obj;
-    http_response_code(200);
+    http_response_code($response_code);
     die();
 }
 
-function returnWithError( $err )
+function returnWithError( $err, $response_code = 200)
 {
     $retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '","lastLogin":"0000-00-00 00:00:00"}';
-    sendResultInfoAsJson( $retValue );
+    sendResultInfoAsJson( $retValue, $response_code);
     
 }
 
