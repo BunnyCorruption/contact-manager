@@ -33,11 +33,11 @@ body {
     cursor: pointer;
 }
 
-.btn-outline-register {
+.btn-outline {
   border-color: aqua;
   color: aqua;
 }
-.btn-outline-register:hover {
+.btn-outline:hover {
   background: aqua;
   color: black;
 }  
