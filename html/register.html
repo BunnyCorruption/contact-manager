@@ -15,14 +15,16 @@
 <body>
     <h1 id="regTitle">Contact Manager Registration</h1>
     <div id="registration">
-        <span id="innerTitle">Please Input Registration Information Below</span><br><br>
-        <input id=regFirstName class="input input-outline" type="text" placeholder="First Name"><br><br>
-        <input id=regLastName class="input input-outline" type="text" placeholder="Last Name"><br><br>
-        <input id=regEmail class="input input-outline" type="text" placeholder="Email"><br><br>
-        <input id=regUserLogin class="input input-outline" type="text" placeholder="Username"><br><br>
-        <input id=regPassword class="input input-outline" type="text" placeholder="Password"><br><br>
-        <button type="button" id="registerButton" class="btn btn-outline" onclick="doRegistration();">Register</button>
-        <span id="registrationResult"></span>
+        <div id="registrationInfo">
+          <span id="innerTitle">Please Input Registration Information Below</span><br><br>
+          <input id=regFirstName type="text" placeholder="First Name"><br><br>
+          <input id=regLastName type="text" placeholder="Last Name"><br><br>
+          <input id=regEmail type="text" placeholder="Email"><br><br>
+          <input id=regUserLogin type="text" placeholder="Username"><br><br>
+          <input id=regPassword type="text" placeholder="Password"><br><br>
+          <button type="button" id="registerButton" class="btn btn-outline" onclick="doRegistration();">Register</button>
+          <span id="registrationResult"></span>
+        </div>
     </div>
 </body>
 </html>

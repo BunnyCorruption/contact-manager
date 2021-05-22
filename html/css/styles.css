@@ -1,16 +1,15 @@
 body {
-    text-align: center;
     background-color: black;
     color: aqua;
     font-family: KoHo, serif;
-}
+    text-align: center;
+} 
 
-#loginTitle 
-{
+#loginTitle {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
     text-align: center;
+    margin: 2% 2%;
     font-family: Courgette, serif;
     color: aqua;
 }
@@ -18,15 +17,16 @@ body {
 #regTitle {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
     text-align: center;
+    margin: 2% 2%;
     font-family: Courgette, serif;
     color: aqua;
 }
 
 .btn { 
-   border: 2px solid black;
+    border: 2px solid black;
     border-radius: 10px;
+    text-align: center;
     background-color: black;
     color: black;
     padding: 14px 28px;
@@ -38,7 +38,22 @@ body {
   border-color: aqua;
   color: aqua;
 }
+
 .btn-outline:hover {
   background: aqua;
   color: black;
 }  
+
+input[type=text], input[type="password"], input[type="password"] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+  border-color: aqua;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: black;
+  color: aqua;
+}
