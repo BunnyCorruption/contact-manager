@@ -3,11 +3,29 @@
 <head>
   <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
   <style>
-      .silver-background {
-          background-color: silver;
+      body {
+        text-align: center;
+        background-color: black;
+        color: aqua;
       }
-      h1 {
-          font-family: Courgette, monospace;
+
+      .btn {
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: black;
+          color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .btn-outline-login {
+        border-color: aqua;
+        color: aqua;
+      }
+      .btn-outline-login:hover {
+        background: aqua;
+        color: black;
       }
     </style>
     <meta charset="UTF-8">
@@ -17,7 +35,7 @@
 </head>
 <body>
   <h1>Welcome to Contact Manager</h1>
-  <div class="silver-background" id="loginDiv">
+  <div class= id="loginDiv">
     <span id="innerTitle">Please Log In</span>
     <br>
     <input type="text" placeholder="Input Username">
@@ -25,7 +43,7 @@
     <input type="password" placeholder="Input Password">
     <br>
     <h3>If you do not have a login, please <a href=register.html>register</a>.</h3>
-    <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Log In</button>
+    <button type="button" id="loginButton" class="btn btn-outline-login" onclick="doLogin();">Log In</button>
     <span id="loginResult"></span>
   </div>
 </body>
