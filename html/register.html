@@ -1,14 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
+    <style>
+        body {
+        text-align: center;
+        background-color: black;
+        color: aqua;
+      }
+
+      .btn {
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: black;
+          color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .btn-outline-register {
+        border-color: aqua;
+        color: aqua;
+      }
+      .btn-outline-register:hover {
+        background: aqua;
+        color: black;
+      }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
 <body>
+    <h1>Contact Manager Registration</h1>
     <div id="registration">
         <span id="innerTitle">Please Input Registration Information Below</span>
+        <br>
         <input type="text" placeholder="First Name">
         <br>
         <input type="text" placeholder="Last Name">
@@ -18,8 +47,8 @@
         <input type="text" placeholder="User Login">
         <br>
         <input type="text" placeholder="Password">
-        <br>
-        <button type="button" id="registerButton" class="buttons" onclick="doRegistration();">Register</button>
+        <br><br>
+        <button type="button" id="registerButton" class="btn btn-outline-register" onclick="doRegistration();">Register</button>
         <span id="registrationResult"></span>
     </div>
 </body>

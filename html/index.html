@@ -1,6 +1,33 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
+  <style>
+      body {
+        text-align: center;
+        background-color: black;
+        color: aqua;
+      }
+
+      .btn {
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: black;
+          color: black;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .btn-outline-login {
+        border-color: aqua;
+        color: aqua;
+      }
+      .btn-outline-login:hover {
+        background: aqua;
+        color: black;
+      }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +35,15 @@
 </head>
 <body>
   <h1>Welcome to Contact Manager</h1>
-  <div id="loginDiv">
+  <div class= id="loginDiv">
     <span id="innerTitle">Please Log In</span>
+    <br>
     <input type="text" placeholder="Input Username">
     <br>
     <input type="password" placeholder="Input Password">
     <br>
     <h3>If you do not have a login, please <a href=register.html>register</a>.</h3>
-    <button type="button" id="loginButton" class="buttons" onclick="doLogin();">Log In</button>
+    <button type="button" id="loginButton" class="btn btn-outline-login" onclick="doLogin();">Log In</button>
     <span id="loginResult"></span>
   </div>
 </body>
