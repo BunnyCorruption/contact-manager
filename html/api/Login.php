@@ -14,7 +14,7 @@ function getRequestInfo()
 $inData = getRequestInfo();
 
 # The inData array has the wrong number of elements, or the required 'login' and 'password' are missing
-if ((count($inData) != 2) || (!isset($inData["login"]) && !isset($inData["password"])))
+if ((count($inData) != 2) || (!isset($inData["login"]) || !isset($inData["password"])))
 {
     http_response_code(400);
     returnWithError("Bad Login Request");
