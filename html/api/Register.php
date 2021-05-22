@@ -17,8 +17,8 @@ $inData = getRequestInfo();
 if ((count($inData) != 5) || (!isset($inData["firstName"]) && !isset($inData["lastName"]) &&
 !isset($inData["email"]) && !isset($inData["userLogin"]) && !isset($inData["password"])))
 {
-    http_response_code(400);
-    returnWithError("Bad Registration Request");
+    
+    returnWithError("Bad Registration Request", 400);
 }
 
 $id = 0;
@@ -67,17 +67,17 @@ else
     returnWithError("");
 }
 
-function sendResultInfoAsJson( $obj )
+function sendResultInfoAsJson( $obj, $response_code)
 {
     header('Content-type: application/json');
     echo $obj;
-    http_response_code(200);
+    http_response_code($response_code);
     die();
 }
 
-function returnWithError( $err )
+function returnWithError( $err, $response_code = 200)
 {
     $retValue = '{"error":"' . $err . '"}';
-    sendResultInfoAsJson( $retValue );
+    sendResultInfoAsJson( $retValue, $response_code);
 }
 ?>
