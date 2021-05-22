@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <link href="css/styles.css" rel="stylesheet">	
+    <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
 </head>
 <body>
     <h1 id="regTitle">Contact Manager Registration</h1>
     <div id="registration">
-        <span id="innerTitle">Please Input Registration Information Below</span>
-        <br>
-        <input id=regFirstName type="text" placeholder="First Name">
-        <br>
-        <input id=regLastName type="text" placeholder="Last Name">
-        <br>
-        <input id=regEmail type="text" placeholder="Email">
-        <br>
-        <input id=regUserLogin type="text" placeholder="Username">
-        <br>
-        <input id=regPassword type="text" placeholder="Password">
-        <br><br>
-        <button type="button" id="registerButton" class="btn btn-outline-register" onclick="doRegistration();">Register</button>
+        <span id="innerTitle">Please Input Registration Information Below</span><br><br>
+        <input id=regFirstName type="text" placeholder="First Name"><br><br>
+        <input id=regLastName type="text" placeholder="Last Name"><br><br>
+        <input id=regEmail type="text" placeholder="Email"><br><br>
+        <input id=regUserLogin type="text" placeholder="Username"><br><br>
+        <input id=regPassword type="text" placeholder="Password"><br><br>
+        <button type="button" id="registerButton" class="btn btn-outline" onclick="doRegistration();">Register</button>
         <span id="registrationResult"></span>
     </div>
 </body>
