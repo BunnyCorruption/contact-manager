@@ -3,7 +3,7 @@
 var x = "adding code to existing file";
 
 
-var urlBase = 'http://group17.codes/index.html';
+var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
 var userId = 0;
@@ -112,12 +112,20 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addUser() //This bad boi will be pertinent to the register.html
+
+function doRegistration() //This bad boi will be pertinent to the register.html
 {
-	var newUser = document.getElementById("userText").value;
+    var firstName = document.getElementById("Spaghetti").value;// i swear i'm gonna edit the spaghetti later :o
+    var lastName = document.getElementById("Spaghetti").value;
+    var email = document.getElementById("Spaghetti").value;
+    var userLogin = document.getElementById("Spaghetti").value;
+    var pass = document.getElementById("Spaghetti").value;
+	//var newUser = document.getElementById("userText").value;
 	document.getElementById("userAddResult").innerHTML = "";
 	
-	var jsonPayload = '{"user" : "' + newUser + '", "userId" : ' + userId + '}';
+    var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' +
+        email + '", "userLogin" : ' + userLogin + '", "pass" : ' + pass + '}';
+
 	var url = urlBase + '/addUser.' + extension;
 	
 	var xhr = new XMLHttpRequest();
