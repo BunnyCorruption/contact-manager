@@ -46,7 +46,7 @@ else
     $stmt->bind_param("s", $esc_userLogin);
     $stmt->execute();
     $result = $stmt->get_result();
-    if ($result->num_rows == 0)
+    if ($result->num_rows != 0)
     {
         returnWithError("Username Already Exists");
     }
