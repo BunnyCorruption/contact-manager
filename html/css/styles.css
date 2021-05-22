@@ -1,0 +1,43 @@
+body {
+    text-align: center;
+    background-color: black;
+    color: aqua;
+}
+
+#loginTitle 
+{
+    font-size: 40px;
+    width: 100%;
+    margin: 2% 5%;
+    text-align: center;
+    font-family: Courgette, sans-serif;
+    color: aqua;
+}
+
+#regTitle {
+    font-size: 40px;
+    width: 100%;
+    margin: 2% 5%;
+    text-align: center;
+    font-family: Courgette, sans-serif;
+    color: aqua;
+}
+
+.btn { 
+   border: 2px solid black;
+    border-radius: 10px;
+    background-color: black;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-outline-register {
+  border-color: aqua;
+  color: aqua;
+}
+.btn-outline-register:hover {
+  background: aqua;
+  color: black;
+}  

@@ -14,8 +14,8 @@ function getRequestInfo()
 $inData = getRequestInfo();
 
 # The inData array has the wrong number of elements, or the required 'login' and 'password' are missing
-if ((count($inData) != 5) || (!isset($inData["firstName"]) && !isset($inData["lastName"]) &&
-!isset($inData["email"]) && !isset($inData["userLogin"]) && !isset($inData["password"])))
+if ((count($inData) != 5) || (!isset($inData["firstName"]) || !isset($inData["lastName"]) ||
+!isset($inData["email"]) || !isset($inData["userLogin"]) || !isset($inData["password"])))
 {
     
     returnWithError("Bad Registration Request", 400);
