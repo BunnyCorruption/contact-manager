@@ -16,8 +16,8 @@ function doLogin()
 	firstName = "";
 	lastName = "";
 	
-	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
+	var login = document.getElementById("userLogin").value;
+	var password = document.getElementById("userPassword").value;
 //	var hash = md5( password ); mas importante' for later
 	
 	document.getElementById("loginResult").innerHTML = "";
@@ -115,11 +115,11 @@ function doLogout()
 
 function doRegistration() //This bad boi will be pertinent to the register.html
 {
-    var firstName = document.getElementById("Spaghetti").value;// i swear i'm gonna edit the spaghetti later :o
-    var lastName = document.getElementById("Spaghetti").value;
-    var email = document.getElementById("Spaghetti").value;
-    var userLogin = document.getElementById("Spaghetti").value;
-    var pass = document.getElementById("Spaghetti").value;
+    var firstName = document.getElementById("regFirstName").value;
+    var lastName = document.getElementById("regLastName").value;
+    var email = document.getElementById("regEmail").value;
+    var userLogin = document.getElementById("regUserLogin").value;
+    var pass = document.getElementById("regPassword").value;
 	//var newUser = document.getElementById("userText").value;
 	document.getElementById("userAddResult").innerHTML = "";
 	
