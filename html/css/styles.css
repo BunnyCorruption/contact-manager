@@ -15,7 +15,7 @@ a:hover {
 
 #loginTitle, #regTitle {
     font-size: 40px;
-    margin: -10px -10px 5% -10px;    
+    margin: -10px -10px 2% -10px;    
     text-align: center;
     font-family: Courgette, serif;
     color: aqua;
@@ -26,7 +26,7 @@ a:hover {
 
 #loginDiv, #registrationDiv {
     padding: 10px;
-    margin: 2% 5% 2% 5%;
+    margin: 5% 5% 2% 5%;
     /*background-color: rgba(115, 194, 194, 0.521);
     border-width: 1px;
     border-style: solid;
