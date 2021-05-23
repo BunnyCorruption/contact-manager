@@ -7,18 +7,22 @@ body {
 
 #loginTitle, #regTitle {
     font-size: 40px;
-    width: 100%;
+    margin: 2% 2%;    
     text-align: center;
-    margin: 2% 2%;
     font-family: Courgette, serif;
     color: aqua;
-    background-color: rgba(3, 80, 80, 0.068);
+    background-color: rgba(65, 163, 163, 0.411);
+    border-color: aqua;
+    padding: 25px;
 }
 
 #loginDiv, #registrationDiv {
     padding: 10px;
     margin: 10px 150px 20px 150px;
     background-color: rgba(115, 194, 194, 0.521);
+    border-width: 5px;
+    border-style: solid;
+    border-color: aqua;
 }
 
 .btn { 
