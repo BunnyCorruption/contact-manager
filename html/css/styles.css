@@ -24,8 +24,8 @@ body {
 }
 
 #loginDiv, #registrationDiv {
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.39);
+    padding: 20px;
+    background-color: rgba(115, 194, 194, 0.521);
 }
 
 .btn { 
