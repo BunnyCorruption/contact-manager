@@ -23,6 +23,11 @@ body {
     color: aqua;
 }
 
+#loginDiv, #registrationDiv {
+    padding: 10px;
+    background-color: rgba(45, 45, 45, 0.1);
+}
+
 .btn { 
     border: 2px solid black;
     border-radius: 10px;
