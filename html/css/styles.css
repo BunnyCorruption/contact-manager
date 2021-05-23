@@ -5,9 +5,17 @@ body {
     text-align: center;
 } 
 
+a {
+  color: aqua;
+}
+
+a:hover {
+  color: red;
+}
+
 #loginTitle, #regTitle {
     font-size: 40px;
-    margin: 2% 2%;    
+    margin: -10px -10px 20px -10px;    
     text-align: center;
     font-family: Courgette, serif;
     color: aqua;
@@ -19,10 +27,16 @@ body {
 #loginDiv, #registrationDiv {
     padding: 10px;
     margin: 10px 150px 20px 150px;
-    background-color: rgba(115, 194, 194, 0.521);
-    border-width: 5px;
+    /*background-color: rgba(115, 194, 194, 0.521);
+    border-width: 1px;
     border-style: solid;
-    border-color: aqua;
+    border-color: aqua;*/
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+
+}
+
+#regFirstName, #regLastName {
+  text-transform: capitalize;
 }
 
 .btn { 
