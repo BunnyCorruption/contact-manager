@@ -25,6 +25,7 @@ body {
 
 #loginDiv, #registrationDiv {
     padding: 20px;
+    margin: 10px;
     background-color: rgba(115, 194, 194, 0.521);
 }
 
