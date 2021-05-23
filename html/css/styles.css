@@ -5,22 +5,14 @@ body {
     text-align: center;
 } 
 
-#loginTitle {
+#loginTitle, #regTitle {
     font-size: 40px;
     width: 100%;
     text-align: center;
     margin: 2% 2%;
     font-family: Courgette, serif;
     color: aqua;
-}
-
-#regTitle {
-    font-size: 40px;
-    width: 100%;
-    text-align: center;
-    margin: 2% 2%;
-    font-family: Courgette, serif;
-    color: aqua;
+    background-color: rgba(3, 80, 80, 0.068);
 }
 
 #loginDiv, #registrationDiv {
