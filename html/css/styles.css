@@ -34,6 +34,18 @@ a:hover {
     box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
 
 }
+/* So the login bars aren't so wide when full screen */
+@media (min-width: 1400px){
+  #loginDiv, #registrationDiv {
+    padding: 10px;
+    margin: 5% 25% 2% 25%;
+    /*background-color: rgba(115, 194, 194, 0.521);
+    border-width: 1px;
+    border-style: solid;
+    border-color: aqua;*/
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+}
+}
 
 #regFirstName, #regLastName {
   text-transform: capitalize;
