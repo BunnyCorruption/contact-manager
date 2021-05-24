@@ -1,32 +1,60 @@
 body {
-    text-align: center;
     background-color: black;
     color: aqua;
     font-family: KoHo, serif;
+    text-align: center;
+} 
+
+a {
+  color: aqua;
 }
 
-#loginTitle 
-{
+a:hover {
+  color: red;
+}
+
+#loginTitle, #regTitle {
     font-size: 40px;
-    width: 100%;
-    margin: 2% 5%;
+    margin: -10px -10px 2% -10px;    
     text-align: center;
     font-family: Courgette, serif;
     color: aqua;
+    background-color: rgba(65, 163, 163, 0.411);
+    border-color: aqua;
+    padding: 25px;
 }
 
-#regTitle {
-    font-size: 40px;
-    width: 100%;
-    margin: 2% 5%;
-    text-align: center;
-    font-family: Courgette, serif;
-    color: aqua;
+#loginDiv, #registrationDiv {
+    padding: 10px;
+    margin: 5% 5% 2% 5%;
+    /*background-color: rgba(115, 194, 194, 0.521);
+    border-width: 1px;
+    border-style: solid;
+    border-color: aqua;*/
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+
+}
+/* So the login bars aren't so wide when full screen */
+@media (min-width: 1400px){
+  #loginDiv, #registrationDiv {
+    padding: 10px;
+    margin: 5% 25% 2% 25%;
+    /*background-color: rgba(115, 194, 194, 0.521);
+    border-width: 1px;
+    border-style: solid;
+    border-color: aqua;*/
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+}
+}
+
+#regFirstName, #regLastName {
+  text-transform: capitalize;
 }
 
 .btn { 
-   border: 2px solid black;
+    border: 2px solid black;
     border-radius: 10px;
+    text-align: center;
     background-color: black;
     color: black;
     padding: 14px 28px;
@@ -38,7 +66,24 @@ body {
   border-color: aqua;
   color: aqua;
 }
+
 .btn-outline:hover {
   background: aqua;
   color: black;
 }  
+
+input[type=text], input[type="password"], input[type="password"] {
+  width: 70%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+  border-width: 2px;
+  border-color: aqua;
+  font-size: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: black;
+  color: aqua;
+}
