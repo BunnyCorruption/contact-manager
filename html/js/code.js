@@ -120,11 +120,11 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var email = document.getElementById("regEmail").value;
     var userLogin = document.getElementById("regUserLogin").value;
     var password = document.getElementById("regPassword").value;
-	//var newUser = document.getElementById("userText").value;
+    var hash = md5(password); 
 	document.getElementById("userAddResult").innerHTML = "";
 	
     var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' +
-        email + '", "userLogin" : ' + userLogin + '", "pass" : ' + pass + '}';
+        email + '", "userLogin" : ' + userLogin + '", "password" : ' + hash + '}';
 
 	var url = urlBase + '/addUser.' + extension;
 	
