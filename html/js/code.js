@@ -137,7 +137,16 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("registrationResult").innerHTML = "User has been added";
+				var jsonObject = JSON.parse( xhr.responseText );
+				errorMessage = jsonObject.error;
+			
+				var statusString = "";
+				if (errorMessage === "")
+					statusString = errorMessage;
+				else
+					statusString = "User has been added";
+
+				document.getElementById("registrationResult").innerHTML = statusString;
 			}
 		};
 		xhr.send(jsonPayload);
