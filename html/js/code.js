@@ -121,7 +121,7 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var userLogin = document.getElementById("regUserLogin").value;
     var password = document.getElementById("regPassword").value;
     var hash = md5(password); 
-	document.getElementById("userAddResult").innerHTML = "";
+	document.getElementById("registrationResult").innerHTML = "";
 	
     var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' +
         email + '", "userLogin" : ' + userLogin + '", "password" : ' + hash + '}';
@@ -137,14 +137,14 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("userAddResult").innerHTML = "User has been added";
+				document.getElementById("registrationResult").innerHTML = "User has been added";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("userAddResult").innerHTML = err.message;
+		document.getElementById("registrationResult").innerHTML = err.message;
 	}
 	
 }
