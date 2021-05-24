@@ -16,11 +16,15 @@
   }
   else
   {
-    # insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
+    
+	# Prevent SQL injection, also trim whitespace.
 	$escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
 	$escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
-	#test
+	$escaped_email = trim($conn->real_escape_string($inData["email"]));
+	$escaped_phone = trim($conn->real_escape_string($inData["phone"]));
 
+	# Sample mySQL command: 
+	# insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
     $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?,?,?,?,?)");
     $stmt->bind_param("sssss", $firstName, $lastName, $email, $phone, $userId);
     $stmt->execute();
