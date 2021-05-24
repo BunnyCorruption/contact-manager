@@ -1,6 +1,5 @@
 <?php
 
-#Please don't use this it's probably broke af
 	$inData = getRequestInfo();
 	
 	$contact = $inData["contact"];
@@ -13,7 +12,7 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into Contacts (UserId,Name) VALUES(?,?)");
+		$stmt = $conn->prepare("DELETE into Contacts (UserId,Name) VALUES(?,?)");
 		$stmt->bind_param("ss", $userId, $contacts);
 		$stmt->execute();
 		$stmt->close();
