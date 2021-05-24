@@ -12,7 +12,7 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("DELETE into Contacts (UserId,Name) VALUES(?,?)");
+		$stmt = $conn->prepare("INSERT into Contacts (UserId,Name) VALUES(?,?)");
 		$stmt->bind_param("ss", $userId, $contacts);
 		$stmt->execute();
 		$stmt->close();
