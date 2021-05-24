@@ -19,6 +19,7 @@
     # insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
 	$escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
 	$escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
+	#test
 
     $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?,?,?,?,?)");
     $stmt->bind_param("sssss", $firstName, $lastName, $email, $phone, $userId);
