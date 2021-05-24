@@ -126,7 +126,7 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' +
         email + '", "userLogin" : ' + userLogin + '", "password" : ' + hash + '}';
 
-	var url = urlBase + '/addUser.' + extension;
+	var url = urlBase + '/Register.' + extension;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
