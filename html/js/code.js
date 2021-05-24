@@ -119,7 +119,7 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var lastName = document.getElementById("regLastName").value;
     var email = document.getElementById("regEmail").value;
     var userLogin = document.getElementById("regUserLogin").value;
-    var pass = document.getElementById("regPassword").value;
+    var password = document.getElementById("regPassword").value;
 	//var newUser = document.getElementById("userText").value;
 	document.getElementById("userAddResult").innerHTML = "";
 	
