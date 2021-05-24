@@ -123,8 +123,8 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var hash = md5(password); 
 	document.getElementById("registrationResult").innerHTML = "";
 	
-    var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : ' + lastName + '", "email" : ' +
-        email + '", "userLogin" : ' + userLogin + '", "password" : ' + hash + '}';
+    var jsonPayload = '{"firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "email" : "' +
+        email + '", "userLogin" : "' + userLogin + '", "password" : "' + hash + '"}';
 
 	var url = urlBase + '/Register.' + extension;
 	
