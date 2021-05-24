@@ -139,12 +139,14 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
 				errorMessage = jsonObject.error;
-			
+				
+				console.log(errorMessage);
+
 				var statusString = "";
 				if (errorMessage === "")
-					statusString = errorMessage;
-				else
 					statusString = "User has been added";
+				else
+					statusString = errorMessage;
 
 				document.getElementById("registrationResult").innerHTML = statusString;
 			}
