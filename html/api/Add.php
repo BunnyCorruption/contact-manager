@@ -1,41 +1,48 @@
 <?php
+  # Requested Information
+  $inData = getRequestInfo();
 
-#Please don't use this it's probably broke af
-	$inData = getRequestInfo();
-	
-	$contact = $inData["contact"];
-	$userId = $inData["userId"];
+  $firstName = $inData["firstName"];
+  $lastName = $inData["lastName"];
+  $email = $inData["email"];
+  $phone = $inData["phone"];
+  $userId = $inData["userId"];
 
-	$conn = new mysqli("localhost", "groupseventeen", "Group17Grapefruit", "CONTACTS"); 	
-	if ($conn->connect_error) 
-	{
-		returnWithError( $conn->connect_error );
-	} 
-	else
-	{
-		$stmt = $conn->prepare("INSERT into Contacts (UserId,Name) VALUES(?,?)");
-		$stmt->bind_param("ss", $userId, $contacts);
-		$stmt->execute();
-		$stmt->close();
-		$conn->close();
-		returnWithError("");
-	}
+  # Connect to CONTACTS database
+  $conn = new mysqli("localhost", "groupseventeen", "Group17Grapefruit", "CONTACTS");
+  if ($conn->connect_error)
+  {
+    returnWithError( $conn->connect_error );
+  }
+  else
+  {
+    # insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
+	$escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
+	$escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
 
-	function getRequestInfo()
-	{
-		return json_decode(file_get_contents('php://input'), true);
-	}
+    $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?,?,?,?,?)");
+    $stmt->bind_param("sssss", $firstName, $lastName, $email, $phone, $userId);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
+    returnWithError("");
+  }
 
-	function sendResultInfoAsJson( $obj )
-	{
-		header('Content-type: application/json');
-		echo $obj;
-	}
-	
-	function returnWithError( $err )
-	{
-		$retValue = '{"error":"' . $err . '"}';
-		sendResultInfoAsJson( $retValue );
-	}
-	
+  function getRequestInfo()
+  {
+    return json_decode(file_get_contents('php://input'), true);
+  }
+
+  function sendResultInfoAsJson( $obj )
+  {
+    header('Content-type: application/json');
+    echo $obj;
+  }
+
+  function returnWithError( $err )
+  {
+    $retValue = '{"error":"' . $err . '"}';
+    sendResultInfoAsJson( $retValue );
+  }
+
 ?>
