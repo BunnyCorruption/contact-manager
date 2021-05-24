@@ -18,12 +18,12 @@ function doLogin()
 	
 	var login = document.getElementById("userLogin").value;
 	var password = document.getElementById("userPassword").value;
-//	var hash = md5( password ); mas importante' for later
+	var hash = md5( password ); 
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+//	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
