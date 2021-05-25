@@ -28,11 +28,11 @@ a:hover {
     margin: -10px -10px 2% -10px;    
     text-align: center;
     font-family: Courgette, serif;
-    color: aqua;
-    background-color: rgba(65, 163, 163, 0.411); /* For browsers that do not support gradients */
+    color: black;
+    background-color: rgba(92, 238, 238, 0.911); /* For browsers that do not support gradients */
     background-image: linear-gradient(to right, aqua , rgb(255, 0, 234));
     /*background-color: rgba(65, 163, 163, 0.411)*/;
-    border-color: aqua;
+    border-color: black;
     padding: 25px;
 }
 
