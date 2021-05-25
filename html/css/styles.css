@@ -96,14 +96,14 @@ input[type=text], input[type="password"], input[type="password"] {
   color: aqua;
 }
 
-.navBar {
+.header {
   margin: -10px -10px 2% -10px;   
   overflow: hidden;
   background-color: rgba(39, 34, 34, 0.921);
   border: 2px solid aqua;
 }
 
-.navBar h1{
+.header h1{
   margin: -1px -1px -1px -1px;
   float: left;
   display: block;
@@ -117,8 +117,11 @@ input[type=text], input[type="password"], input[type="password"] {
   background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
 }
 
-.navBar a {
+.header .navbar {
   float: right;
+}
+
+.header .navBar a {
   display: block;
   color: aqua;
   text-align: center;
@@ -127,22 +130,22 @@ input[type=text], input[type="password"], input[type="password"] {
   font-size: 17px;
 }
 
-.navBar a:hover {
+.header .navBar a:hover {
   background: rgb(255, 0, 234);
   color: white;
 }
 
-.navBar a.active {
+.header .navbar a.active {
   background: rgb(255, 0, 234);
   color: white;
 }
 
-.navBar .search-container {
-  float: right; 
+.header .search-container {
+  float:inline-end; 
   margin-right: 20px;
 }
 
-.navBar input[type=text] {
+.header input[type=text] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -154,7 +157,7 @@ input[type=text], input[type="password"], input[type="password"] {
   color: aqua;
 }
 
-.navBar .search-container button {
+.header .search-container button {
   float: right;
   padding: 6px 10px;
   margin: 8px 16px 8px ;
@@ -166,17 +169,17 @@ input[type=text], input[type="password"], input[type="password"] {
   cursor: pointer;
 }
 
-.navBar .search-container button:hover {
+.header .search-container button:hover {
   background: rgb(255, 0, 234);
   color: white;
   border-color: aqua(255, 0, 234);
 }
  
 @media screen and (max-width: 950px) {
-  .navBar .search-container {
+  .header .search-container {
     float: none;
   }
-  .navBar a,.navBar h1, .topnav input[type=text], .topnav .search-container button {
+  .header a,.header h1, .header input[type=text], .header .search-container button {
     float: none;
     display: block;
     text-align: center;
@@ -184,7 +187,7 @@ input[type=text], input[type="password"], input[type="password"] {
     margin: 0;
     padding: 14px;
   }
-  .navBar input[type=text] {
+  .header input[type=text] {
     border: 1px solid aqua;  
   }
 }
