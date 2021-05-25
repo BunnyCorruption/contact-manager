@@ -27,11 +27,12 @@ a:hover {
 #loginDiv, #registrationDiv {
     padding: 10px;
     margin: 5% 5% 2% 5%;
+    border-radius: 30px;
     /*background-color: rgba(115, 194, 194, 0.521);
     border-width: 1px;
     border-style: solid;
     border-color: aqua;*/
-    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 5px 7px 8px rgba(255, 0, 234, 0.521);
 
 }
 /* So the login bars aren't so wide when full screen */
@@ -39,12 +40,13 @@ a:hover {
   #loginDiv, #registrationDiv {
     padding: 10px;
     margin: 5% 25% 2% 25%;
+    border-radius: 30px;
     /*background-color: rgba(115, 194, 194, 0.521);
     border-width: 1px;
-    border-style: solid;*/
-    border-color: rgb(255, 0, 234);
+    border-style: solid;
+    border-color: aqua;*/
     box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
-}
+  } 
 }
 
 #regFirstName, #regLastName {
