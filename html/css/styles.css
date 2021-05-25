@@ -13,7 +13,7 @@ a:hover {
   color: red;
 }
 
-#loginTitle, #regTitle {
+#loginTitle, #regTitle, #contactsTitle {
     font-size: 40px;
     margin: -10px -10px 2% -10px;    
     text-align: center;
