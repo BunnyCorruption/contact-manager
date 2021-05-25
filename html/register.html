@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <h1 id="regTitle">Contact Manager Registration</h1>
+    <div id="grad">
+        <h1 id="regTitle">Contact Manager Registration</h1>
+    </div>
     <div id="registrationDiv">
         <span id="innerTitle">Please Input Registration Information Below</span><br><br>
         <input id=regFirstName type="text" placeholder="First Name"><br><br>
@@ -22,7 +24,7 @@
         <input id=regUserLogin type="text" placeholder="Username"><br><br>
         <input id=regPassword type="text" placeholder="Password"><br><br>
         <h3>Have an account? <a href=index.html><em><strong>Log in</strong></em></a>.</h3>
-        <button type="button" id="registerButton" class="btn btn-outline" onclick="doRegistration();">Register</button><br>
+        <button type="button" id="registerButton" class="btn btn-outline" onclick="doRegistration();"><strong>Register</strong>></button><br>
         <span id="registrationResult"></span>
     </div>
 </body>
