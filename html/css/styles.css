@@ -97,3 +97,9 @@ input[type=text], input[type="password"], input[type="password"] {
   background-color: black;
   color: aqua;
 }
+
+#navBar{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
