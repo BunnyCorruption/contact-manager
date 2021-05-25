@@ -68,7 +68,7 @@ input:-webkit-autofill:active
     animation-name: glowEffect;
     animation-duration: 3s;
     animation-direction: normal;
-    animation-timing-function: linear;
+    animation-timing-function: steps(10);
     animation-iteration-count: infinite;
 
     /*background-color: rgba(115, 194, 194, 0.521);
