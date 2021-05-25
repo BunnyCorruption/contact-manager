@@ -1,5 +1,5 @@
 <?php
-  # SYNTAX: $var == variable
+    # SYNTAX: $var == variable
   # Requested Information
   $inData = getRequestInfo();
 
@@ -22,20 +22,37 @@
   else
   {
 
-	# Prevent SQL injection, also trim whitespace.
-	$escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
-	$escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
-	$escaped_email = trim($conn->real_escape_string($inData["email"]));
-	$escaped_phone = trim($conn->real_escape_string($inData["phone"]));
+    # Prevent SQL injection, also trim whitespace.
+    $escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
+    $escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
+    $escaped_email = trim($conn->real_escape_string($inData["email"]));
+    $escaped_phone = trim($conn->real_escape_string($inData["phone"]));
 
-	# Sample mySQL command:
-	# insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
-    $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?,?,?,?,?)");
-    $stmt->bind_param("sssss", $firstName, $lastName, $email, $phone, $userId);
+    # Check for duplicate contacts
+    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = ? and SELECT LastName from Information where LastName = ? and SELECT Email from Information where Email = ? and SELECT Phone from Information where Phone = ? and SELECT UserID from Information where UserID = ?");
+    $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email, $escaped_phone, $userId);
     $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows != 0)
+    {
+      returnWithError("Contact Already Exists")
+    } 
+
+    # Sample mySQL command:
+    # Insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
+    $stmt = $conn->query("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(\"$escaped_firstName\",\"$escaped_lastName\",\"$escaped_email\",\"$escaped_firstName\",?)");
+    // $stmt->bind_param("sssss", $firstName, $lastName, $email, $phone, $userId);
+    // $stmt->execute();
+    $err = "";
+    if (!$result)
+    {
+      $err = mysqli_error($conn);
+    }
+
+    # Close open resources
     $stmt->close();
     $conn->close();
-    returnWithError("");
+    returnWithError($err);
   }
 
   # Function to obtain json file/information
