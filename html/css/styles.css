@@ -10,7 +10,7 @@ a {
 }
 
 a:hover {
-  color: red;
+  color: rgb(255, 0, 234);
 }
 
 #loginTitle, #regTitle, #contactsTitle {
@@ -41,8 +41,8 @@ a:hover {
     margin: 5% 25% 2% 25%;
     /*background-color: rgba(115, 194, 194, 0.521);
     border-width: 1px;
-    border-style: solid;
-    border-color: aqua;*/
+    border-style: solid;*/
+    border-color: rgb(255, 0, 234);
     box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
 }
 }
@@ -68,7 +68,7 @@ a:hover {
 }
 
 .btn-outline:hover {
-  background: aqua;
+  background: rgb(255, 0, 234);
   color: black;
 }  
 
