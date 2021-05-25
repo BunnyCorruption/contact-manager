@@ -29,15 +29,11 @@ a:hover {
     text-align: center;
     font-family: Courgette, serif;
     color: aqua;
+    background-color: rgba(65, 163, 163, 0.411); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to right, aqua , rgb(255, 0, 234));
     /*background-color: rgba(65, 163, 163, 0.411)*/;
     border-color: aqua;
     padding: 25px;
-}
-
-#grad {
-  height: 200px;
-  background-color: rgba(65, 163, 163, 0.411); /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, aqua , rgb(255, 0, 234));
 }
 
 #loginDiv, #registrationDiv {
