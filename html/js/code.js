@@ -188,6 +188,36 @@ function addContact()
 	}
 	
 }
+
+function deleteContact() {
+
+    if (confirm("Are you sure you want to delete this contact?")) {
+
+        //Aw frick I gotta see the table to determine how we're selecting this beast to delete. To be continued.
+        var contact = document.getElementById("contactText").value;
+
+        document.getElementById("contactDeleteResult").innerHTML = "";
+
+        var jsonPayload = '{"contactId" : ' + contactId + '}';
+        var url = urlBase + '/addUser.' + extension;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("DELETE", url, true);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+        try {
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("contactDeleteResult").innerHTML = "Contact has been removed.";
+                }
+            };
+            xhr.send(jsonPayload);
+        }
+        catch (err) {
+            document.getElementById("contactDeleteResult").innerHTML = err.message;
+        }
+    }
+    
+}
 function searchContacts()
 {
 	var srch = document.getElementById("searchText").value;
