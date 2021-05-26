@@ -38,6 +38,12 @@ else
     $esc_userLogin = trim($conn->real_escape_string($inData["userLogin"]));
     $esc_password = trim($conn->real_escape_string($inData["password"]));
 
+    if (empty($esc_firstName) || empty($esc_lastName) || empty($esc_email) || empty($esc_userLogin)|| empty($esc_password))
+    {
+        $stmt->close();
+        $conn->close();
+        returnWithError("We couldn't register you, a field was empty.");
+    }
     # Additional server side hashing, it uses the default PHP hashing algorithm (which is bcrypt)
     $hash = password_hash($esc_password, PASSWORD_DEFAULT, ['cost' => 12]);
 
@@ -48,6 +54,8 @@ else
     $result = $stmt->get_result();
     if ($result->num_rows != 0)
     {
+        $stmt->close();
+        $conn->close();
         returnWithError("Username Already Exists");
     }
 
