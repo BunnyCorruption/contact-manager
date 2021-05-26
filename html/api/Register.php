@@ -38,7 +38,7 @@ else
     $esc_userLogin = trim($conn->real_escape_string($inData["userLogin"]));
     $esc_password = trim($conn->real_escape_string($inData["password"]));
 
-    if (empty($esc_firstName) || empty($esc_lastName) || empty($esc_email) || empty($esc_userLogin)|| empty($esc_password))
+    if (empty($esc_firstName) || empty($esc_lastName) || empty($esc_email) || empty($esc_userLogin)|| empty($esc_password) || !(strcmp($esc_password, "d41d8cd98f00b204e9800998ecf8427e")))
     {
         $conn->close();
         returnWithError("We couldn't register you, a field was empty.");
