@@ -2,7 +2,6 @@
 
 	$inData = getRequestInfo();
 	
-	$contact = $inData["contact"];
 	$userId = $inData["userId"];
 
 	$conn = new mysqli("localhost", "groupseventeen", "Group17Grapefruit", "CONTACTS"); 	
@@ -12,8 +11,12 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("DELETE into Contacts (UserId,Name) VALUES(?,?)");
-		$stmt->bind_param("ss", $userId, $contacts);
+
+		#Prevent SQL injection, also trim whitespace.
+		$escaped_userId = trim($conn->real_escape_string($userId));
+
+		$stmt = $conn->prepare("DELETE FROM Contacts WHERE (UserId) VALUES(?)");
+		$stmt->bind_param("s", $escaped_userId);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
