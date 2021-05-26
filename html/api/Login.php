@@ -36,6 +36,12 @@ else
     $escaped_login = trim($conn->real_escape_string($inData["login"]));
     $escaped_password = trim($conn->real_escape_string($inData["password"]));
 
+    if (empty($escaped_login) || empty($escaped_password) || !(strcmp($escaped_password, "d41d8cd98f00b204e9800998ecf8427e")))
+    {
+        $conn->close();
+        returnWithError("We couldn't log you in, a field was empty.");
+    }
+
     $stmt = $conn->prepare("SELECT ID, FirstName, LastName, DateLastLoggedIn, Password FROM Users WHERE Login=?");
     $stmt->bind_param("s", $escaped_login);
     $stmt->execute();

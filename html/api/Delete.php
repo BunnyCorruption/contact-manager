@@ -1,6 +1,5 @@
 <?php
 
-#Please don't use this it's probably broke af
 	$inData = getRequestInfo();
 	
 	$contact = $inData["contact"];

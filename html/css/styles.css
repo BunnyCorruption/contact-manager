@@ -10,7 +10,17 @@ a {
 }
 
 a:hover {
-  color: red;
+  color: rgb(255, 0, 234);
+}
+
+#innerTitle, h3 {
+  font-size: large;
+  color: aqua;
+  font-weight: bold;
+}
+
+#outerDiv {
+  padding: 20px;
 }
 
 #loginTitle, #regTitle {
@@ -18,33 +28,54 @@ a:hover {
     margin: -10px -10px 2% -10px;    
     text-align: center;
     font-family: Courgette, serif;
-    color: aqua;
-    background-color: rgba(65, 163, 163, 0.411);
-    border-color: aqua;
+    color: black;
+    background-color: rgba(92, 238, 238, 0.911); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
+    border-color: black;
     padding: 25px;
 }
 
-#loginDiv, #registrationDiv {
-    padding: 10px;
-    margin: 5% 5% 2% 5%;
-    /*background-color: rgba(115, 194, 194, 0.521);
-    border-width: 1px;
-    border-style: solid;
-    border-color: aqua;*/
-    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active
+{
+ -webkit-box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
+ -webkit-text-fill-color:aqua;
 
 }
-/* So the login bars aren't so wide when full screen */
-@media (min-width: 1400px){
-  #loginDiv, #registrationDiv {
-    padding: 10px;
-    margin: 5% 25% 2% 25%;
+
+/* Animation Frames */
+@keyframes glowEffect {
+  0% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px 5px 7px 6px rgba(255, 0, 234, 0.521);}
+  25% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 5px 1px 7px 5px rgba(255, 0, 234, 0.521);}
+  50% {box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px -3px 7px 5px rgba(255, 0, 234, 0.521);}
+  75% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), -5px -1px 7px 5px rgba(255, 0, 234, 0.521);}
+  100% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px 5px 7px 6px rgba(255, 0, 234, 0.521);}
+}
+
+#loginDiv, #registrationDiv {
+    padding: 20px;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 30px;
+    max-width: 800px;
+    background-color: rgba(39, 34, 34, 0.921);
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 5px 7px 8px rgba(255, 0, 234, 0.521);
+    
+    /* Animation */
+    animation-name: glowEffect;
+    animation-duration: 3s;
+    animation-direction: normal;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+
     /*background-color: rgba(115, 194, 194, 0.521);
     border-width: 1px;
     border-style: solid;
     border-color: aqua;*/
-    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521);
-}
+    /* box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 12px 12px rgba(115, 194, 194, 0.521); */
+
 }
 
 #regFirstName, #regLastName {
@@ -68,22 +99,123 @@ a:hover {
 }
 
 .btn-outline:hover {
-  background: aqua;
-  color: black;
-}  
+  background: rgb(255, 0, 234);
+  color: white;
+  border-color: aqua(255, 0, 234);
+} 
+
+#loginResult {
+  color: rgb(255, 0, 234);
+  font-weight: bold;
+}
 
 input[type=text], input[type="password"], input[type="password"] {
-  width: 70%;
   padding: 12px 20px;
+  min-width: 80%;
+  max-width: 600px;
   margin: 8px 0;
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 2px solid aqua;
   border-radius: 4px; 
-  border-width: 2px;
-  border-color: aqua;
   font-size: 16px;
   text-align: center;
   box-sizing: border-box;
   background-color: black;
   color: aqua;
+}
+
+.header {
+  margin: -10px -10px 2% -10px;   
+  overflow: hidden;
+  background-color: rgba(39, 34, 34, 0.921);
+  border: 2px solid aqua;
+}
+
+.header h1{
+  margin: -1px -1px -1px -1px;
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 40px;
+  font-family: Courgette, serif;
+  background-color: rgba(92, 238, 238, 0.911); /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
+}
+
+.header .navbar {
+  float: right;
+}
+
+.header .navBar a {
+  display: block;
+  color: aqua;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.header .navBar a:hover {
+  background: rgb(255, 0, 234);
+  color: white;
+}
+
+.header .navbar a.active {
+  background: rgb(255, 0, 234);
+  color: white;
+}
+
+.header .search-container {
+  float:inline-end; 
+  margin-right: 20px;
+}
+
+.header input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: 1px solid aqua;
+  border-radius: 4px; 
+  text-align: center;
+  box-sizing: border-box;
+  background-color: black;
+  color: aqua;
+}
+
+.header .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin: 8px 16px 8px ;
+  background: black;
+  font-size: 17px;
+  color: aqua;
+  border: 2px solid aqua;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.header .search-container button:hover {
+  background: rgb(255, 0, 234);
+  color: white;
+  border-color: aqua(255, 0, 234);
+}
+ 
+@media screen and (max-width: 950px) {
+  .header .search-container {
+    float: none;
+  }
+  .header a,.header h1, .header input[type=text], .header .search-container button {
+    float: none;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .header input[type=text] {
+    border: 1px solid aqua;  
+  }
 }
