@@ -29,7 +29,7 @@
     $escaped_phone = trim($conn->real_escape_string($inData["phone"]));
 
     # Check for duplicate contacts
-    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = ? and SELECT LastName from Information where LastName = ? and SELECT Email from Information where Email = ? and SELECT Phone from Information where Phone = ? and SELECT UserID from Information where UserID = ?");
+    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = $escaped_firstName and SELECT LastName from Information where LastName = $escaped_lastName and SELECT Email from Information where Email = $escaped_email and SELECT Phone from Information where Phone = $escaped_phone and SELECT UserID from Information where UserID = $userId");
     $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email, $escaped_phone, $userId);
     $stmt->execute();
     $result = $stmt->get_result();
