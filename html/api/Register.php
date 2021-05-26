@@ -40,7 +40,6 @@ else
 
     if (empty($esc_firstName) || empty($esc_lastName) || empty($esc_email) || empty($esc_userLogin)|| empty($esc_password))
     {
-        $stmt->close();
         $conn->close();
         returnWithError("We couldn't register you, a field was empty.");
     }

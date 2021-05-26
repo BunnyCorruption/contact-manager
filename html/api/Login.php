@@ -38,7 +38,6 @@ else
 
     if (empty($escaped_login) || empty($escaped_password))
     {
-        $stmt->close();
         $conn->close();
         returnWithError("We couldn't log you in, a field was empty.");
     }
