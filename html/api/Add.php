@@ -23,13 +23,13 @@
   {
 
     # Prevent SQL injection, also trim whitespace.
-    $escaped_firstName = trim($conn->real_escape_string($inData["firstName"]));
-    $escaped_lastName = trim($conn->real_escape_string($inData["lastName"]));
-    $escaped_email = trim($conn->real_escape_string($inData["email"]));
-    $escaped_phone = trim($conn->real_escape_string($inData["phone"]));
+    $escaped_firstName = trim($conn->real_escape_string($firstName));
+    $escaped_lastName = trim($conn->real_escape_string($lastName));
+    $escaped_email = trim($conn->real_escape_string($email));
+    $escaped_phone = trim($conn->real_escape_string($phone));
 
     # Check for duplicate contacts
-    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = $escaped_firstName and SELECT LastName from Information where LastName = $escaped_lastName and SELECT Email from Information where Email = $escaped_email and SELECT Phone from Information where Phone = $escaped_phone and SELECT UserID from Information where UserID = $userId");
+    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = ? and SELECT LastName from Information where LastName = ? and SELECT Email from Information where Email = ? and SELECT Phone from Information where Phone = ? and SELECT UserID from Information where UserID = ?");
     $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email, $escaped_phone, $userId);
     $stmt->execute();
     $result = $stmt->get_result();
