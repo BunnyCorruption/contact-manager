@@ -35,7 +35,7 @@
     $result = $stmt->get_result();
     if ($result->num_rows != 0)
     {
-      returnWithError("Contact Already Exists")
+      returnWithError("Contact Already Exists");
     } 
 
     # Sample mySQL command:
