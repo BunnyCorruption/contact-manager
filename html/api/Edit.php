@@ -54,7 +54,7 @@ else
     $stmt->bind_param("ss", $esc_contactID, $esc_userID);
     $stmt->execute();
     $result = $stmt->get_result();
-    if ($result->num_rows != 0)
+    if ($result->num_rows == 0)
     {
         $stmt->close();
         $conn->close();
