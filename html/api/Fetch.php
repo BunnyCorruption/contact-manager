@@ -45,7 +45,7 @@ else
     if (empty($escaped_contactID) || empty($escaped_userID) );
     {
         $conn->close();
-        returnWithError("Fetch error, a field was empty.");
+        returnWithError("Fetch error, a field was empty." ."'$escaped_contactID' and '$escaped_userID'"."'".$inData["ID"].' and '.$inData["userId"]."'");
     }
 
     $stmt = $conn->prepare("SELECT ID, FirstName, LastName, DateCreated, Email, Phone FROM Information WHERE UserID = ? AND ID = ?");
