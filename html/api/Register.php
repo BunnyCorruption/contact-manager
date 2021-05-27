@@ -62,9 +62,13 @@ else
 
 
     # Insert the new user
-    $result = $conn->query("INSERT INTO Users (FirstName, LastName, Login, Password, Email) VALUES (\"$esc_firstName\", \"$esc_lastName\", \"$esc_userLogin\", \"$hash\", \"$esc_email\")");
-    // $stmt->bind_param("sssss", $esc_firstName, $esc_lastName, $esc_userLogin, $hash, $esc_email);
-    // $stmt->execute();
+    // $result = $conn->query("INSERT INTO Users (FirstName, LastName, Login, Password, Email)
+    //  VALUES (\"$esc_firstName\", \"$esc_lastName\", \"$esc_userLogin\", \"$hash\", \"$esc_email\")");
+    $stmt->close();
+    $stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Login, Password, Email) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $esc_firstName, $esc_lastName, $esc_userLogin, $hash, $esc_email);
+    $stmt->execute();
+    $result = $stmt->get_result();
     $err = "";
     if (!$result)
     {
