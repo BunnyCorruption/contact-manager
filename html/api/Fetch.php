@@ -40,7 +40,7 @@ else
 {
     # Prevent SQL injection, also trim whitespace.
     $escaped_contactID = trim($conn->real_escape_string($inData["ID"]));
-    $escaped_userID = trim($conn->real_escape_string($inData["userID"]));
+    $escaped_userID = trim($conn->real_escape_string($inData["userId"]));
 
     if (empty($escaped_contactID) || empty($escaped_userID) );
     {
