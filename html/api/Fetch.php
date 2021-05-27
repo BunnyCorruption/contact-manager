@@ -81,14 +81,14 @@ function sendResultInfoAsJson( $obj, $response_code = 200)
 
 function returnWithError( $err, $response_code = 200)
 {
-    $retValue = '{"ID":0, "email":"", "phone":"" "firstName":"", "lastName":"", "dateCreated":"0000-00-00 00:00:00", "error":"'.$err.'"}';
+    $retValue = '{"ID":0, "email":"", "phone":"","firstName":"", "lastName":"", "dateCreated":"0000-00-00 00:00:00", "error":"'.$err.'"}';
     sendResultInfoAsJson( $retValue, $response_code);
     
 }
 
 function returnWithInfo($id, $email, $phone, $firstName, $lastName, $dateCreated, $error = "")
 {
-    $retValue = '{"ID":"'.$id.'", "email":"'.$email.'", "phone":"'.$phone.'" "firstName":"'.$firstName.'", "lastName":"'.$lastName.'", "dateCreated":"'.$dateCreated.'", "error":"'.$error.'"}';
+    $retValue = '{"ID":"'.$id.'", "email":"'.$email.'", "phone":"'.$phone.'","firstName":"'.$firstName.'", "lastName":"'.$lastName.'", "dateCreated":"'.$dateCreated.'", "error":"'.$error.'"}';
     sendResultInfoAsJson( $retValue );
 }
 

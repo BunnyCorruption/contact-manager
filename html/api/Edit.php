@@ -1,6 +1,15 @@
 <?php
 # Request json should have 'ID', 'firstName', 'lastName', 'email', 'phone', 'userId'
-
+/* Example:
+{
+  "ID": "3",
+  "firstName": "Test",
+  "lastName": "Edit",
+  "email": "edit@gmail.com",
+  "phone": "407-000-6969",
+  "userId": "9"
+}
+*/
 # ID is the ID to edit, userID is the person (from Users) trying to make the edit.
 
 # Response json example: 
