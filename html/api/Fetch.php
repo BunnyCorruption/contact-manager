@@ -3,9 +3,17 @@
 
 
 # Response json example: 
-
-# {"ID":0, "email":"", "phone":"" "firstName":"", "lastName":"", "dateCreated":"0000-00-00 00:00:00", "error":"Bad Fetch Request"}
-
+/*
+{
+    "ID": 0,
+    "email": "",
+    "phone": "",
+    "firstName": "",
+    "lastName": "",
+    "dateCreated": "0000-00-00 00:00:00",
+    "error": "Fetch error, a field was empty."
+}
+*/
 # Returns an associative array from the incoming json (sourced from the php input file stream)
 function getRequestInfo()
 {
@@ -40,7 +48,7 @@ else
         returnWithError("Fetch error, a field was empty.");
     }
 
-    $stmt = $conn->prepare("SELECT ID, FirstName, LastName, DateCreated, Email, Phone FROM Users WHERE UserID = ? AND ID = ?");
+    $stmt = $conn->prepare("SELECT ID, FirstName, LastName, DateCreated, Email, Phone FROM Information WHERE UserID = ? AND ID = ?");
     $stmt->bind_param("ss", $escaped_userID, $escaped_contactID);
     $stmt->execute();
     $result = $stmt->get_result();
