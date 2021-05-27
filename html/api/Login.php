@@ -58,6 +58,10 @@ else
         # with md5 client side, and then bcrypt on the server side.
         if (password_verify($escaped_password, $row['Password']))
         {
+            $stmt->close();
+            $stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = CURRENT_TIMESTAMP WHERE ID = ?");
+            $stmt->bind_param("s", $row['ID']);
+            $stmt->execute();
             returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'], $row['DateLastLoggedIn'] );
         }
         else
