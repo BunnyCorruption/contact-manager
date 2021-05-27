@@ -50,19 +50,27 @@ else
     # Did a User exist with that login?
     if($row = $result->fetch_assoc())
     {
-        $stmt->close();
-        $conn->close();
+        // $stmt->close();
+        // $conn->close();
 
         # Register will use an additional hash (php's built in bcrypt hash) and this compares
         # the hashed password from the DB, to the incoming hash. Passwords are hashed
         # with md5 client side, and then bcrypt on the server side.
         if (password_verify($escaped_password, $row['Password']))
         {
-            $stmt->close();
             $stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = CURRENT_TIMESTAMP WHERE ID = ?");
             $stmt->bind_param("s", $row['ID']);
             $stmt->execute();
-            returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'], $row['DateLastLoggedIn'] );
+            $stmt->close();
+            $stmt = $conn->prepare("SELECT DateLastLoggedIn FROM Users WHERE ID = ?");
+            $stmt->bind_param("s", $row['ID']);
+            $stmt->execute();
+            $secondResultSet = $stmt->get_result();
+            $secondRow = $secondResultSet->fetch_assoc();
+            $lastLoggedIn = $secondRow["DateLastLoggedIn"];
+            $stmt->close();
+            $conn->close();
+            returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'],  $lastLoggedIn);
         }
         else
         {
