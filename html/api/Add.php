@@ -30,12 +30,14 @@
     $escaped_userId = trim($conn->real_escape_string($userId));
 
     # Check for duplicate contacts
-    $stmt = $conn->prepare("SELECT FirstName from Information where FirstName = ? and SELECT LastName from Information where LastName = ? and SELECT Email from Information where Email = ? and SELECT Phone from Information where Phone = ? and SELECT UserID from Information where UserID = ?");
+    $stmt = $conn->prepare("SELECT FirstName from Information WHERE FirstName = ? and LastName = ? and Email = ? and Phone = ? and UserID = ?");
     $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email, $escaped_phone, $escaped_userId);
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows != 0)
     {
+      $stmt->close();
+      $conn->close();
       returnWithError("Contact Already Exists");
     } 
 
@@ -44,7 +46,7 @@
     # When using an additional query the statement has to be closed first before reusing
     $stmt->close();
     $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email,$escaped_firstName, $escaped_userId);
+    $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email,$escaped_phone, $escaped_userId);
     $result = $stmt->get_result();
     $err = "";
     if (!$result)
