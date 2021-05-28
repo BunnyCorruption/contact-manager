@@ -36,8 +36,8 @@
     $result = $stmt->get_result();
     if ($result->num_rows != 0)
     {
-      // $stmt->close();
-      // $conn->close();
+      $stmt->close();
+      $conn->close();
       returnWithError("Contact Already Exists");
     } 
 
@@ -72,6 +72,7 @@
   {
     header('Content-type: application/json');
     echo $obj;
+    die();
   }
 
   # Function to return an error
