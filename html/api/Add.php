@@ -45,8 +45,9 @@
     # Insert into Information (FirstName, LastName, Email, Phone, UserID) VALUES ('Jane', 'Doe', 'jd@email.com', '8773934448', 1);
     # When using an additional query the statement has to be closed first before reusing
     $stmt->close();
-    $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES(?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT into Information (FirstName, LastName, Email, Phone, UserID) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $escaped_firstName, $escaped_lastName, $escaped_email,$escaped_phone, $escaped_userId);
+    $stmt->execute();
     $result = $stmt->get_result();
     $err = "";
     if (!$result)
