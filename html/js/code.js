@@ -1,14 +1,9 @@
-
-//for the debugs
-var x = "adding code to existing file";
-
-
 var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
-var userId = 0;
-var firstName = "";
-var lastName = "";
+// var userId = 0;
+// var firstName = "";
+// var lastName = "";
 
 function doLogin()
 {
@@ -47,7 +42,12 @@ function doLogin()
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName; //I was lazy and didn't swap the first/last to user/pass throughout
 
-				saveCookie();
+				var minutesToExpiry = 20;
+				var expiresOn = new Date();
+				expiresOn.setTime(expiresOn.getTime()+(minutesToExpiry*60*1000));
+				var expiration = expiresOn.toUTCString();
+				
+				saveCookie(firstName, lastName, userId, expiration);
 	
 				window.location.href = "contacts.html";
 				
@@ -62,54 +62,60 @@ function doLogin()
 
 }
 
-function saveCookie()
+function saveCookie(fname, lname, id, expiry = "Thu, 01 Jan 1970 00:00:00 GMT")
 {
-	var minutes = 20;
-	var date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	var sessionCookieObject = {firstName:fname, lastName: lname, userId: id, expires: expiry};
+	var sessionCookie = JSON.stringify(sessionCookieObject);
+	document.cookie = sessionCookie;
+	// document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
 function readCookie()
 {
-	userId = -1;
-	var data = document.cookie;
-	var splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
+	var sessionData = document.cookie;
+	if (sessionData == "")
 	{
-		var thisOne = splits[i].trim();
-		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
-			firstName = tokens[1];
-		}
-		else if( tokens[0] == "lastName" )
-		{
-			lastName = tokens[1];
-		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
-		}
+		window.location.href = "index.html?err=notloggedin";
 	}
-	
-	if( userId < 0 )
+	sessionJSON = JSON.parse(sessionData);
+	id = sessionJSON.userId;
+	fname = sessionJSON.firstName;
+	lname = sessionJSON.lastName;
+	expires = sessionJSON.expires;
+
+	parsedDate = Date.parse(expires);
+	currentDate = new Date().getTime();
+
+	valid = true;
+
+	if (parsedDate <= currentDate)
+	{
+		valid = false;
+	}
+	if (id <= 0)
+	{
+		valid = false;
+	}
+		
+	if (!valid)
 	{
 		window.location.href = "index.html";
 	}
 	else
 	{
-		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		document.getElementById("userName").innerHTML = "Logged in as " + fname + " " + lname;
 	}
 }
 
 function doLogout()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	saveCookie("","","0");
 	window.location.href = "index.html";
+	// userId = 0;
+	// firstName = "";
+	// lastName = "";
+	// document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	// window.location.href = "index.html";
 }
 
 
@@ -159,6 +165,18 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 	}
 	
 }
+
+
+/*
+Many changes needed below
+but also, to retrieve the user's ID, you should run (names irrelevant)
+
+var sessionData = document.cookie;
+sessionJSON = JSON.parse(sessionData);
+****THEUSERSID**** = sessionJSON.userId;
+
+*/
+
 
 function addContact()
 {
