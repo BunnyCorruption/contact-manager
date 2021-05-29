@@ -12,11 +12,13 @@
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
     <script type="text/javascript" src="js/newfile.js"></script>
-    <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() 
-    {
-        readCookie();
-    }, false);
+    <script type="text/javascript"></script>
+    <script>
+    // No event listener is used here. Just a direct call.
+    // waiting for DOMContentLoaded event doesn't make sense because it would
+    // show the entire page, then just redirect the user immediately
+    readCookie();
+    </script>
     </script>
 </head>
 <body>

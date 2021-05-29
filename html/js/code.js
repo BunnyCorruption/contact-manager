@@ -64,6 +64,7 @@ function doLogin()
 
 function saveCookie(fname, lname, id, expiry = "Thu, 01 Jan 1970 00:00:00 GMT")
 {
+	document.cookie = "";
 	var sessionCookieObject = {firstName:fname, lastName: lname, userId: id, expires: expiry};
 	var sessionCookie = JSON.stringify(sessionCookieObject);
 	document.cookie = sessionCookie;
