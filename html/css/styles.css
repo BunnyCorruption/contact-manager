@@ -208,7 +208,9 @@ input[type=text], input[type="password"], input[type="password"] {
     float: none;
     display: block;
     text-align: center;
-    width: 100%;
+    /* This width = 100 appears to offset the navbar elements to the right for some reason*/
+    /* I think this should make them centered. */
+    /* width: 100%; */
     margin: 0;
     padding: 14px;
   }
