@@ -92,11 +92,13 @@ function readCookie()
 	if( userId < 0 )
 	{
 		window.location.href = "index.html";
+		console.log("User not logged in, redirected to index.html");
 	}
 	else
 	{
-		console.log( "Logged in as " + firstName + " " + lastName);
-		console.log("id:" + userId);
+		console.log(document.cookie);
+		// console.log( "Logged in as " + firstName + " " + lastName);
+		// console.log("id:" + userId);
 		// just for now.
 	}
 }
