@@ -12,12 +12,11 @@
 	} 
 	else
 	{
-		$escaped_firstName = "%" . trim($conn->real_escape_string($inData["firstName"])) . "%";
-		$escaped_lastName = "%" . trim($conn->real_escape_string($inData["lastName"])) . "%";
+		$escaped_name = "%" . trim($conn->real_escape_string($inData["name"])) . "%";
 		$escaped_userId = trim($conn->real_escape_string($inData["userId"]));
 
 		$stmt = $conn->prepare("SELECT * from Information where (FirstName like ? or LastName like ?) and UserID=?");
-		$stmt->bind_param("sss", $escaped_firstName, $escaped_lastName, $escaped_userId);
+		$stmt->bind_param("sss", $escaped_name, $escaped_name, $escaped_userId);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
