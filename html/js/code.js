@@ -62,7 +62,7 @@ function saveCookie()
 	var minutes = 20;
 	var date = new Date();
 	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + "; expires=" + date.toGMTString();
+	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + "; expires=" + date.toUTCString() + ";";
 	console.log(document.cookie);
 }
 
@@ -106,7 +106,7 @@ function doLogout()
 	userId = 0;
 	firstName = "";
 	lastName = "";
-	document.cookie = "firstName= ; expires= Thu, 01 Jan 1970 00:00:00 GMT";
+	document.cookie = "firstName= ; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
 	window.location.href = "index.html";
 }
 
