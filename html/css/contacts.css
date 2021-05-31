@@ -76,6 +76,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     color: white;
 }
 
+
 /* Medium breakpoint for bootstrap */
 @media screen and (max-width: 767.98px)
 {
