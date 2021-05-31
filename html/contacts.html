@@ -127,6 +127,18 @@
         <div class="tab-pane fade mt-3" id="addContact" role="tabpanel" aria-labelledby="addContact-tab">
             <div class="container-fluid">
                 <!--add contact form will go here-->
+                <h1 id="addTitle">Add Contact</h1>
+                <div id="outerDiv">
+                <div id="addDiv">
+                    <span id="innerTitle">Please Input Registration Information Below</span><br><br>
+                    <input id=addFirstName type="text" placeholder="First Name"><br><br>
+                    <input id=addLastName type="text" placeholder="Last Name"><br><br>
+                    <input id=addEmail type="text" placeholder="Email"><br><br>
+                    <input id=addPhone type="text" placeholder="Phone Number"><br><br>
+                    <button type="button" id="addButton" class="btn btn-outline" onclick="addContact();"><strong>Add</strong></button><br>
+                    <span id="contactAddResult"></span>
+                </div>
+                </div>
             </div>
         </div>
     </div>    
