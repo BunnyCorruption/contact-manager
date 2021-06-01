@@ -57,15 +57,22 @@
       <div class="tab-pane fade show active mt-3" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="container">
           <div class="example-text p-2">
-            <h3 class="m-2" style="color: rgb(255, 0, 234); text-align: center;">Please Search Contacts Below</h3>
+            <h3 class="m-2 search-header" >Please Search Contacts Below</h3>
             <form class="d-flex justify-content-center m-3">
               <input class="me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
-              <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+              
               <button class="btn fa-button-search"><span class="fa fa-search"></span></button>
             </form>
 
+            <!-- Seprate container for now for dev purposes, but the "no-results" div
+            will actually just be inserted into the main one -->
             <div class="accordion searchResult m-2" style="border-radius: 12px;" id="searchResults">
+              <div class="no-results">
+                No results found.
+              </div>
+            </div>
 
+            <div class="accordion searchResult m-2" style="border-radius: 12px;" id="searchResults">
               <div class="accordion-item charcoal-bg test">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -74,7 +81,7 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                   <div class="accordion-body" style="border-radius: 12px;">
-                    <!--delete button trigger/open Modal-->
+                    
                     <button id="deleteBtn" class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
                     <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
                     <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button>
@@ -128,8 +135,8 @@
                         <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
                         <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
 
-                        <!-- this inner container is temporary, im doing some testing with it -->
-                        <div class="container-fluid">
+                        
+                        
                         <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                         <input class="m-2 contact-info-field" disabled type="text" value="fname">
                         <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
@@ -138,11 +145,11 @@
                         <input class="m-2 contact-info-field" disabled type="text" value="email">
                         <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
                         <input class="m-2 contact-info-field" disabled type="text" value="phone">
-                    </div>
+                    
                       </div>
                     </div>
                 </div>
-            </div>     
+            </div>  <!-- end of search result div-->   
       </div>
     </div>
   </div>

@@ -222,6 +222,11 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     }
 }
 
+.search-header {
+    color: rgb(255, 0, 234);
+    text-align: center;
+}
+
 
 
 
@@ -320,4 +325,14 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     color: aqua;
     width: 80%;
     max-width: 300px;
+}
+
+
+.no-results{
+    background-color: rgba(39,34,34,0.7);
+    text-align: center;
+    width: 200px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
 }
