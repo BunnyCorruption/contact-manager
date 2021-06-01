@@ -178,7 +178,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     border-color: aqua(255, 0, 234);
 } 
 
-input[type=text] {
+#addDiv input[type=text] {
     padding: 12px 20px;
     min-width: 80%;
     max-width: 600px;
@@ -195,4 +195,16 @@ input[type=text] {
 
 #outerDiv {
     text-align: center;
-}  
+}
+
+.contact-info-field{
+    font-size: 17px;
+    border: 1px solid aqua;
+    border-radius: 4px; 
+    text-align: center;
+    display: block;
+    background-color: black;
+    color: aqua;
+    width: 80%;
+    max-width: 300px;
+}
