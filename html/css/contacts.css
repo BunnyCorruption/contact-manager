@@ -86,6 +86,16 @@ background-color: rgba(39,34,34,0.921);
     border-radius: 10px;
     cursor: pointer;
     float: right;
+
+}
+.fa-button-nohover{
+    background: black;
+    font-size: 17px;
+    color: aqua;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
 }
 
 
@@ -316,7 +326,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
 }
 
 .contact-info-field{
-    font-size: 17px;
+    font-size: 20px;
     border: 1px solid aqua;
     border-radius: 4px; 
     text-align: center;
@@ -325,6 +335,17 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     color: aqua;
     width: 80%;
     max-width: 300px;
+}
+.upload-file{
+    font-size: 20px;
+    border: 1px solid aqua;
+    border-radius: 4px; 
+    text-align: center;
+    display: block;
+    color: black;
+    background-color: aqua;
+    width: 80%;
+    max-width: 100px;
 }
 
 

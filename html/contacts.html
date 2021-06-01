@@ -24,6 +24,19 @@
     // Comment this function call out if it is redirecting on vs code live server
     // readCookie();
   }, false);
+
+  function handlePhotoUpload(id)
+  {
+    if (document.getElementById("photoUpload" + id).files.length == 0)
+      return;
+      
+  document.getElementById("photoForm" + id).submit();
+      
+      
+      
+    
+  }
+
   </script>
 
   <title>Contact Manager &mdash; Home</title>
@@ -82,9 +95,9 @@
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                   <div class="accordion-body" style="border-radius: 12px;">
                     
-                    <button id="deleteBtn" class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button>
+                    <button id="deleteBtn" class="m-1 btn fa-button" onclick="openModal(4)"><i class="fa fa-trash"></i> Delete</button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i> Edit</button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i> Save</button>
 
                     <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                     <input class="m-2 contact-info-field" disabled type="text" value="fname">
@@ -94,6 +107,14 @@
                     <input class="m-2 contact-info-field" disabled type="text" value="email">
                     <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
                     <input class="m-2 contact-info-field" disabled type="text" value="phone">                                                    
+               
+                    <a href="#" class="contactInfoHeader" onclick="document.getElementById('photoForm4').style.display = 'flex';">Add a photo?</a>
+                    
+                    <form style="display: none" id="photoForm4" class="input-group m-2" method="POST" action="upload.php" enctype="multipart/form-data"  target="hidden_iframe">
+                      <input name="uploadedFile" type="file" class="form-control contact-info-field" id="photoUpload4">
+                      <input type="hidden" value="4" name="id">
+                      <input onclick="handlePhotoUpload(4);" name="uploadButton" class="btn upload-file" type="button" id="photoUpload4" value="Upload" />
+                    </form>
                   </div>
 
                 </div>
@@ -197,6 +218,6 @@
   <script>
     new bootstrap.Modal(document.getElementById('exampleModal')).toggle()
     </script>-->
-    
+    <iframe id="hidden_iframe" name="hidden_iframe"  height="60px" scrolling="no"></iframe>
 </body>
 </html>
