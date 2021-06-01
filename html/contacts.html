@@ -40,13 +40,13 @@
                 <!-- mb-2 mb-sm-1 was removed from ul -->
                 <ul class="nav navbar-nav ms-auto nav-pills" id="myTab" role="tablist">
                     <li class="nav-item active m-0 m-md-1" role="presentation">
-                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item m-0 m-md-1" role="presentation">
-                      <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false">Add Contact</a>
+                      <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-plus-circle"></i> Add Contact</a>
                     </li>
                     <li class="nav-item m-0 m-md-1">
-                      <a class="nav-link" aria-current="page" onclick="doLogout();" href="#">Logout</a>
+                      <a class="nav-link" aria-current="page" onclick="doLogout();" href="#"><i class="fa fa-arrow-circle-right"></i> Logout</a>
                   </li>
                 </ul>
             </div>
@@ -74,9 +74,11 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                   <div class="accordion-body" style="border-radius: 12px;">
-                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+
+                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
+
                     <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                     <input class="m-2 contact-info-field" disabled type="text" value="fname">
                     <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
@@ -86,6 +88,7 @@
                     <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
                     <input class="m-2 contact-info-field" disabled type="text" value="phone">                                                    
                   </div>
+
                 </div>
               </div>
 
@@ -164,24 +167,12 @@
   </div>    
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    
-</body>
-</html>
+              <div class="accordion-item charcoal-bg test">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Contact Name #2
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#searchResults">
+                  <div class="accordion-body">
+                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
