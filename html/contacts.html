@@ -40,13 +40,13 @@
                 <!-- mb-2 mb-sm-1 was removed from ul -->
                 <ul class="nav navbar-nav ms-auto nav-pills" id="myTab" role="tablist">
                     <li class="nav-item active m-0 m-md-1" role="presentation">
-                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true"><i class="fa fa-home"></i> Home</a>
                     </li>
                     <li class="nav-item m-0 m-md-1" role="presentation">
-                      <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false">Add Contact</a>
+                      <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false"><i class="fa fa-plus-circle"></i> Add Contact</a>
                     </li>
                     <li class="nav-item m-0 m-md-1">
-                      <a class="nav-link" aria-current="page" onclick="doLogout();" href="#">Logout</a>
+                      <a class="nav-link" aria-current="page" onclick="doLogout();" href="#"><i class="fa fa-arrow-circle-right"></i> Logout</a>
                   </li>
                 </ul>
             </div>
@@ -58,7 +58,7 @@
             <div class="container-fluid">
                 <div class="example-text p-2">
                     <h3 class="m-2">Please Search Below</h3>
-                    <form class="d-flex m-1">
+                    <form class="d-flex m-2">
                         <input class="me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
                         <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
                         <button class="btn fa-button"><span class="fa fa-search"></span></button>
@@ -66,7 +66,7 @@
 
                     <div class="accordion searchResult m-2" style="border-radius: 12px;" id="searchResults">
 
-                        <div class="accordion-item charcoal-bg test">
+                        <div class="accordion-item charcoal-bg test" >
                           <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                               Contact Name #1
@@ -74,9 +74,9 @@
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                             <div class="accordion-body charcoal-bg" style="border-radius: 12px;">
-                              <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
-                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
-                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                              <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i> Delete</button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i> Edit</button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i> Save</button> 
                               <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                               <input class="m-2 search-bar"  type="search" value="fname">
                               <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
@@ -121,16 +121,16 @@
                               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#searchResults">
                                 <div class="accordion-body">
                                   <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
-                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
-                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
-                              <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
-                              <input class="m-2 search-bar"  type="search" value="fname">
-                              <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
-                              <input class="m-2 search-bar"  type="search" value="lname">
-                              <span class="contactInfoHeader" id="contactEmail">Email: </span>
-                              <input class="m-2 search-bar"  type="search" value="email">
-                              <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
-                              <input class="m-2 search-bar"  type="search" value="phone">
+                                  <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                                  <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                                  <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                                  <input class="m-2 search-bar"  type="search" value="fname">
+                                  <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                                  <input class="m-2 search-bar"  type="search" value="lname">
+                                  <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                                  <input class="m-2 search-bar"  type="search" value="email">
+                                  <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                                  <input class="m-2 search-bar"  type="search" value="phone">
                                 </div>
                               </div>
                         </div>
