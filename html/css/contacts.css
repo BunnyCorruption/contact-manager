@@ -47,6 +47,7 @@ background-color: rgba(39,34,34,0.921);
 .nav-pills a, .nav-pills button{
     color: aqua;
     font-size: large;
+    cursor: pointer;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link, .nav-pills .nav-link:hover{
