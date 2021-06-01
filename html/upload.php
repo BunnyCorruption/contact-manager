@@ -49,6 +49,7 @@ if (!$duplicate)
         chmod($target_file, 777);
         $file_success++;
         echo '<h2>Success!</h2>';
+        echo '<h2>'.$_POST['id']." was the id</h2>";
     }
     else 
     {
@@ -56,5 +57,6 @@ if (!$duplicate)
         //echo'<a href="/profile_setting.php">Back to profile settings.</a>';
     }
 }
+
 ?>
 
