@@ -28,61 +28,116 @@
 
   <title>Contact Manager &mdash; Home</title>
 </head>
-<body> 
-  <nav class="navbar navbar-expand-md navbar-dark charcoal-bg koho p-0 m-0 aqua-border-bottom">
-    <div class="container-fluid p-0 m-0"> <!--padding here-->
-      <a class="navbar-brand logo" href="#">Contact Manager</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <!-- mb-2 mb-sm-1 was removed from ul -->
-        <ul class="nav navbar-nav ms-auto nav-pills" id="myTab" role="tablist">
-          <li class="nav-item m-0 m-md-1">
-            <a class="nav-link" aria-current="page" onclick="doLogout();" href="#">Logout</a>
-          </li>
-          <li class="nav-item m-0 m-md-1" role="presentation">
-            <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false">Add Contact</a>
-          </li>
-          <li class="nav-item active m-0 m-md-1" role="presentation">
-            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body>
+    
+    <nav class="navbar navbar-expand-md navbar-dark charcoal-bg koho p-0 m-0 aqua-border-bottom">
+        <div class="container-fluid p-0 m-0"> <!--padding here-->
+            <a class="navbar-brand logo" href="#">Contact Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <!-- mb-2 mb-sm-1 was removed from ul -->
+                <ul class="nav navbar-nav ms-auto nav-pills" id="myTab" role="tablist">
+                    <li class="nav-item active m-0 m-md-1" role="presentation">
+                      <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                    </li>
+                    <li class="nav-item m-0 m-md-1" role="presentation">
+                      <a class="nav-link" id="addContact-tab" data-bs-toggle="tab" data-bs-target="#addContact" role="tab" aria-controls="profile" aria-selected="false">Add Contact</a>
+                    </li>
+                    <li class="nav-item m-0 m-md-1">
+                      <a class="nav-link" aria-current="page" onclick="doLogout();" href="#">Logout</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active mt-3" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <div class="container">
-        <div class="example-text p-2">
-          <p>Anything can go here!</p>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active mt-3" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="container-fluid">
+                <div class="example-text p-2">
+                    <h3 class="m-2">Please Search Below</h3>
+                    <form class="d-flex m-1">
+                        <input class="me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
+                        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                        <button class="btn fa-button"><span class="fa fa-search"></span></button>
+                    </form>
 
-          <form class="d-flex m-1">
-            <input class="me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn fa-button"><span class="fa fa-search"></span></button>
-          </form>
+                    <div class="accordion searchResult m-2" style="border-radius: 12px;" id="searchResults">
 
-          <div class="accordion" id="searchResults">
-            <div class="accordion-item my-2 charcoal-bg">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Accordion Item #1
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
-                <div class="accordion-body charcoal-bg">
-                  <!-- Ideally, we will have 2 buttons: one for edit, one to delete -->
-                  <!-- If the user clicks edit: the 4 fields could be enabled and then -->
-                  <!-- the edit button could turn into save OR we can just add a third button to save -->
-                  <input class="me-2 contact-info-field" disabled type="text" value="fname">
-                  <input class="me-2 contact-info-field" disabled type="text" value="lname">
-                  <input class="me-2 contact-info-field" disabled type="text" value="email">
-                  <input class="me-2 contact-info-field" disabled type="text" value="phone">
-                  <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  <button type="button" class="btn btn-primary" onclick="openModal(8)">
-                    Launch demo modal
-                  </button>
+                        <div class="accordion-item charcoal-bg test">
+                          <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Contact Name #1
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#searchResults">
+                            <div class="accordion-body charcoal-bg" style="border-radius: 12px;">
+                              <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                              <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                              <input class="m-2 search-bar"  type="search" value="fname">
+                              <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                              <input class="m-2 search-bar"  type="search" value="lname">
+                              <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                              <input class="m-2 search-bar"  type="search" value="email">
+                              <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                              <input class="m-2 search-bar"  type="search" value="phone">                                                    
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion-item charcoal-bg test">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Contact Name #2
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#searchResults">
+                            <div class="accordion-body">
+                              <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                              <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                              <input class="m-2 search-bar"  type="search" value="fname">
+                              <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                              <input class="m-2 search-bar"  type="search" value="lname">
+                              <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                              <input class="m-2 search-bar"  type="search" value="email">
+                              <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                              <input class="m-2 search-bar"  type="search" value="phone">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="accordion-item charcoal-bg">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Contact Name #3
+                                </button>
+                              </h2>
+                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#searchResults">
+                                <div class="accordion-body">
+                                  <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                              <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                              <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                              <input class="m-2 search-bar"  type="search" value="fname">
+                              <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                              <input class="m-2 search-bar"  type="search" value="lname">
+                              <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                              <input class="m-2 search-bar"  type="search" value="email">
+                              <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                              <input class="m-2 search-bar"  type="search" value="phone">
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                    
+                   
+
                 </div>
               </div>
             </div>
