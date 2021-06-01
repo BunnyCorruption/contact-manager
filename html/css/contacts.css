@@ -127,20 +127,29 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
         background-color: transparent;
         font-size: x-large;
     }
+    /* Buttons for delete edit and save move on top.*/
+    .fa-button{
+        float:none;
+        display: inline-block;
+        
+    }
+    .contactInfoHeader{
+        display: block;
+    }
+
+
     /* Galaxy Fold, or thinner */
     @media screen and (max-width: 310px)
     {
         .logo{
             font-size: large;
         }
+        .fa-button{
+            float:none;
+            display: block;            
+        }
     }
-    .fa-button{
-        float:none;
-        display: inline-block;
-    }
-    .contactInfoHeader{
-        display: block;
-    }
+
     .nav-pills{
         background-image: none !important;
         background-color: rgba(39,34,34,1) !important;
