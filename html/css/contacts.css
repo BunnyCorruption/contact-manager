@@ -134,6 +134,13 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
             font-size: large;
         }
     }
+    .fa-button{
+        float:none;
+        display: inline-block;
+    }
+    .contactInfoHeader{
+        display: block;
+    }
     .nav-pills{
         background-image: none !important;
         background-color: rgba(39,34,34,1) !important;
