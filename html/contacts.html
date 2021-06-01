@@ -74,9 +74,11 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                   <div class="accordion-body" style="border-radius: 12px;">
+
                     <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
                     <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
                     <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
+
                     <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                     <input class="m-2 contact-info-field" disabled type="text" value="fname">
                     <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
@@ -86,8 +88,84 @@
                     <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
                     <input class="m-2 contact-info-field" disabled type="text" value="phone">                                                    
                   </div>
+
                 </div>
               </div>
+
+              <div class="accordion-item charcoal-bg test">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Contact Name #2
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#searchResults">
+                  <div class="accordion-body">
+                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                    <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                    <input class="m-2 contact-info-field" disabled type="text" value="fname">
+                    <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="lname">
+                    <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="email">
+                    <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="phone">
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item charcoal-bg">
+                  <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Contact Name #3
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#searchResults">
+                      <div class="accordion-body">
+                        <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
+                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
+                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                        
+                    <!-- this inner container is temporary, im doing some testing with it -->
+                    <div class="container-fluid">
+                    <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                    <input class="m-2 contact-info-field" disabled type="text" value="fname">
+                    <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="lname">
+                    <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="email">
+                    <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="phone">
+                    </div>
+                      </div>
+                    </div>
+                </div>
+            </div>     
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="tab-pane fade m-3" id="addContact" role="tabpanel" aria-labelledby="addContact-tab">
+    <div class="container">
+      <!--add contact form will go here-->
+      <h1 id="addTitle">Add Contact</h1>
+        <div id="outerDiv">
+          <div id="addDiv">
+            <!-- <span id="innerTitle">Please Input Registration Information Below</span><br><br> -->
+            <input id=addFirstName type="text" placeholder="First Name"><br><br>
+            <input id=addLastName type="text" placeholder="Last Name"><br><br>
+            <input id=addEmail type="text" placeholder="Email"><br><br>
+            <input id=addPhone type="text" placeholder="Phone Number"><br><br>
+            <button type="button" id="addButton" class="btn btn-outline" onclick="addContact();"><strong>Add</strong></button><br>
+            <span id="contactAddResult"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+
 
               <div class="accordion-item charcoal-bg test">
                 <h2 class="accordion-header" id="headingTwo">
