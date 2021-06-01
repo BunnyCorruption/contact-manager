@@ -61,6 +61,7 @@ background-color: rgba(39,34,34,0.921);
 .nav-pills a, .nav-pills button{
     color: aqua;
     font-size: large;
+    cursor: pointer;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link, .nav-pills .nav-link:hover{
@@ -172,17 +173,19 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
         background-color: transparent;
         font-size: x-large;
     }
-    .fa-button{
-        float: left;
-    }
-    
+
     /* Galaxy Fold, or thinner */
     @media screen and (max-width: 310px)
     {
         .logo{
             font-size: large;
         }
+        .fa-button{
+            float:none;
+            display: block;            
+        }
     }
+
     .nav-pills{
         background-image: none !important;
         background-color: rgba(39,34,34,1) !important;
