@@ -88,6 +88,8 @@ background-color: rgba(39,34,34,0.921);
     float: right;
 }
 
+
+
 .fa-button:hover {
     background: rgb(255, 0, 234);
     color: white;
@@ -126,6 +128,7 @@ background-color: rgba(39,34,34,0.921);
     border-color: aqua(255, 0, 234);
 }
 
+
 .search-bar{
     font-size: 17px;
     border: 1px solid aqua;
@@ -135,8 +138,26 @@ background-color: rgba(39,34,34,0.921);
     background-color: black;
     color: aqua;
     width: 280px;
-    display: block;
+    display: inline;
+
 }
+.fa-button-search{
+    background: black;
+    font-size: 17px;
+    color: aqua;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline;
+}
+
+.fa-button-search:hover {
+    background: rgb(255, 0, 234);
+    color: white;
+    border-color: aqua(255, 0, 234);
+}
+
+
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
