@@ -138,3 +138,112 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
         background-color: rgba(39,34,34,1) !important;
     }
 }
+
+
+
+
+/* Add Contact CSS */
+
+#addTitle {
+    font-size: 40px;
+    margin: auto;    
+    text-align: center;
+    font-family: Courgette, serif;
+    color: black;
+    background-color: rgba(92, 238, 238, 0.911); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
+    border-color: black;
+    border-radius: 25px;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Animation Frames */
+@keyframes glowEffect {
+    0% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px 5px 7px 6px rgba(255, 0, 234, 0.521);}
+    25% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 5px 1px 7px 5px rgba(255, 0, 234, 0.521);}
+    50% {box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px -3px 7px 5px rgba(255, 0, 234, 0.521);}
+    75% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), -5px -1px 7px 5px rgba(255, 0, 234, 0.521);}
+    100% { box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0px 5px 7px 6px rgba(255, 0, 234, 0.521);}
+  }
+
+#addDiv {
+    padding: 20px;
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 30px;
+    max-width: 800px;
+    background-color: rgba(39, 34, 34, 0.921);
+    box-shadow: 0 10px 15px 20px rgba(115, 194, 194, 0.411), 0 5px 7px 8px rgba(255, 0, 234, 0.521);
+    
+    /* Animation */
+    animation-name: glowEffect;
+    animation-duration: 3s;
+    animation-direction: normal;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+}
+
+#addFirstName, #addLastName {
+    text-transform: capitalize;
+  }
+
+
+.btn-outline {
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: black;
+    color: black;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: aqua;
+    color: aqua;
+}
+
+.btn-outline:hover {
+    background: rgb(255, 0, 234);
+    color: white;
+    border-color: aqua(255, 0, 234);
+} 
+
+#addDiv input[type=text] {
+    padding: 12px 20px;
+    min-width: 80%;
+    max-width: 600px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid aqua;
+    border-radius: 4px; 
+    font-size: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: black;
+    color: aqua;
+  }
+
+#outerDiv {
+    text-align: center;
+}
+
+.contact-info-field{
+    font-size: 17px;
+    border: 1px solid aqua;
+    border-radius: 4px; 
+    text-align: center;
+    display: block;
+    background-color: black;
+    color: aqua;
+    width: 80%;
+    max-width: 300px;
+}
+/* Flip elements in mobile collapsed view */
+@media (max-width: 767.98px) {
+    ul.navbar-nav {
+        transform: rotate(180deg);
+    }
+    ul.navbar-nav > li {
+        transform: rotate(-180deg);
+    }
+}
