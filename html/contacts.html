@@ -32,7 +32,7 @@
     
     <nav class="navbar navbar-expand-md navbar-dark charcoal-bg koho p-0 m-0 aqua-border-bottom">
         <div class="container-fluid p-0 m-0"> <!--padding here-->
-            <a class="navbar-brand logo" href="#">Contact Manager</a>
+            <a class="navbar-brand logo nav-link active"><i class="fa fa-address-book-o"></i> Contact Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,8 +57,8 @@
       <div class="tab-pane fade show active mt-3" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="container">
           <div class="example-text p-2">
-            <h3 class="m-2">Please Search Below</h3>
-            <form class="d-flex m-1">
+            <h3 class="m-2" style="color: rgb(255, 0, 234); text-align: center;">Please Search Contacts Below</h3>
+            <form class="d-flex m-2">
               <input class="me-2 search-bar" type="search" placeholder="Search" aria-label="Search">
               <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
               <button class="btn fa-button"><span class="fa fa-search"></span></button>
@@ -74,10 +74,10 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
                   <div class="accordion-body" style="border-radius: 12px;">
-
-                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
+                    <!--delete button trigger/open Modal-->
+                    <button id="deleteBtn" class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
                     <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button>
 
                     <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                     <input class="m-2 contact-info-field" disabled type="text" value="fname">
@@ -100,9 +100,10 @@
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#searchResults">
                   <div class="accordion-body">
-                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
-                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
+                    <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
+
                     <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
                     <input class="m-2 contact-info-field" disabled type="text" value="fname">
                     <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
@@ -123,20 +124,20 @@
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#searchResults">
                       <div class="accordion-body">
-                        <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"></i></button>
-                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i></button>
-                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i></button> 
-                        
-                    <!-- this inner container is temporary, im doing some testing with it -->
-                    <div class="container-fluid">
-                    <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
-                    <input class="m-2 contact-info-field" disabled type="text" value="fname">
-                    <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
-                    <input class="m-2 contact-info-field" disabled type="text" value="lname">
-                    <span class="contactInfoHeader" id="contactEmail">Email: </span>
-                    <input class="m-2 contact-info-field" disabled type="text" value="email">
-                    <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
-                    <input class="m-2 contact-info-field" disabled type="text" value="phone">
+                        <button class="m-1 btn fa-button" onclick="openModal(8)"><i class="fa fa-trash"> Delete</i></button>
+                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"> Edit</i></button>
+                        <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"> Save</i></button> 
+
+                        <!-- this inner container is temporary, im doing some testing with it -->
+                        <div class="container-fluid">
+                        <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                        <input class="m-2 contact-info-field" disabled type="text" value="fname">
+                        <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                        <input class="m-2 contact-info-field" disabled type="text" value="lname">
+                        <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                        <input class="m-2 contact-info-field" disabled type="text" value="email">
+                        <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                        <input class="m-2 contact-info-field" disabled type="text" value="phone">
                     </div>
                       </div>
                     </div>
@@ -169,21 +170,26 @@
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+      <div class="modal-content modal-border charcoal-bg" style="color: white;">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclimation-circle"></i> Are you sure?</h3>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          ...
+        <div class="modal-body ">
+          <p>Are you sure you would like to delete this contact? This action is permanent.</p>
+          <p>If you will like to proceed with this action please confirm your choice or cancel to go back.</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="m-1 btn fa-button-cxl" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="m-1 btn fa-button-delete">Delete Contact</button>
         </div>
       </div>
     </div>
   </div>
+<!-- Modal Test--
+  <script>
+    new bootstrap.Modal(document.getElementById('exampleModal')).toggle()
+    </script>-->
     
 </body>
 </html>

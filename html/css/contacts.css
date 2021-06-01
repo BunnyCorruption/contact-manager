@@ -17,6 +17,21 @@ background-color: rgba(39,34,34,0.921);
     color: black !important;
 }
 
+.modal-header{
+    padding: 14px 16px;
+    font-size: 40px;
+    font-family: Courgette, serif;
+    background-color: rgba(92, 238, 238, 0.911); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
+    font-weight: bold;
+    color: black !important;
+}
+
+.modal-border{
+    border: 3px solid white;
+    border-radius: 7px;
+}
+
 .contactInfoHeader{
     color:rgb(255, 0, 234);
     font-weight: bold;
@@ -38,7 +53,6 @@ background-color: rgba(39,34,34,0.921);
 .aqua-border-bottom{
     border-bottom: 2px solid aqua;
 }
-
 
 .koho{
     font-family: Koho, serif;
@@ -77,6 +91,38 @@ background-color: rgba(39,34,34,0.921);
 .fa-button:hover {
     background: rgb(255, 0, 234);
     color: white;
+    border-color: aqua(255, 0, 234);
+}
+
+.fa-button-delete{
+    background: black;
+    font-size: 17px;
+    color: red;
+    border: 2px solid red;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
+}
+
+.fa-button-delete:hover {
+    background: red;
+    color: white;
+    border-color: aqua(255, 0, 234);
+}
+
+.fa-button-cxl{
+    background: black;
+    font-size: 17px;
+    color: aqua;
+    border: 2px solid aqua;
+    border-radius: 10px;
+    cursor: pointer;
+    float: right;
+}
+
+.fa-button-cxl:hover {
+    background: aqua;
+    color: black;
     border-color: aqua(255, 0, 234);
 }
 
@@ -127,16 +173,6 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
         background-color: transparent;
         font-size: x-large;
     }
-    /* Buttons for delete edit and save move on top.*/
-    .fa-button{
-        float:none;
-        display: inline-block;
-        
-    }
-    .contactInfoHeader{
-        display: block;
-    }
-
 
     /* Galaxy Fold, or thinner */
     @media screen and (max-width: 310px)
