@@ -338,6 +338,23 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     width: 90%;
     max-width: 300px;
 }
+.nohover:hover{
+    background-color: transparent !important;
+    cursor: default !important;
+}
+#addAlert{
+    max-width: 800px;
+    margin: auto;
+    font-size: large;
+}
+
+.welcome{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+
+
+}
 @media screen and (max-width: 360px)
 {
     .contact-info-field{
@@ -345,6 +362,11 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     }
     .upload-file{
         font-size: 15px !important;
+    }
+    .welcome{
+        color: white;
+        font-size: 15px;
+        
     }
 }
 
@@ -393,5 +415,4 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     height: 200px;
     display: block;
 }
-
 

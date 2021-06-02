@@ -164,12 +164,25 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 
 function addContact()
 {
-	var newContact = document.getElementById("contactText").value;
-	document.getElementById("contactAddResult").innerHTML = "";
+	var newfName = document.getElementById("addFirstName").value;
+	var newlName = document.getElementById("addLastName").value;
+	var newPhone = document.getElementById("addPhone").value;
+	var newEmail = document.getElementById("addEmail").value;
+	var myId = userId;
+
+	$("#addAlerts").empty();
+		
+	var jsonObjPayload = {
+		"firstName": newfName,
+		"lastName": newlName,
+		"email" : newEmail,
+		"phone" : newPhone,
+		"userId": myId
+	  };
 	
-	var jsonPayload = '{"contact" : "' + newContact + '", "contactId" : ' + contactId + '}';
-	var url = urlBase + '/addUser.' + extension;
-	
+	var jsonPayload = JSON.stringify(jsonObjPayload);
+
+	var url = urlBase + '/Add.' + extension;
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -179,7 +192,37 @@ function addContact()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+				var responseText = JSON.parse(xhr.responseText);
+				var responseError = responseText.error;
+				if (responseError == "")
+				{
+					alertString = "";
+					alertString += '<div id="addAlert" class="alert my-2 alert-success alert-dismissible fade show" role="alert">';
+					alertString += '<strong><i class="fa fa-check-square"></i> Contact added!</strong> Visit <i class="fa fa-home"></i> Home to search for all your contacts.';
+					alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+					alertString += '</div>';
+					$("#addAlerts").append(alertString);
+				}
+				else if (responseError == "Contact Already Exists")
+				{
+					alertString = "";
+					alertString += '<div id="addAlert" class="alert my-2 alert-warning alert-dismissible fade show" role="alert">';
+					alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Contact Already Exists!</strong>'+ newfName +' is a direct duplicate of one of your contacts.';
+					alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+					alertString += '</div>';
+					$("#addAlerts").append(alertString);
+				}
+				else
+				{
+					alertString = "";
+					alertString += '<div id="addAlert" class="alert my-2 alert-danger alert-dismissible fade show" role="alert">';
+					alertString += '<strong><i class="fa fa-times-circle"></i> Error!</strong> '+ responseError+ '.';
+					alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+					alertString += '</div>';
+					$("#addAlerts").append(alertString);
+				}
+				
+				// document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);

@@ -25,6 +25,7 @@ if (strpos($target_file, '.png') !== FALSE || strpos($target_file, '.jpeg') !== 
 else
 {
     echo 'This file type is not valid. You can use png, jpg, jpeg, webp, gif, or bmp.';
+    echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "'.'This file type is not valid. You can use png, jpg, jpeg, webp, gif, or bmp.'.'"</script>';
     die();
 }
 
