@@ -23,7 +23,7 @@
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
-		$rowCount = $stmt->num_rows();
+		$rowCount = $result->num_rows;
 
 		while($row = $result->fetch_assoc())
 		{
