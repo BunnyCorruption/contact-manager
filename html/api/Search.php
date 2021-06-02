@@ -29,7 +29,7 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '"' . $row["ID"] . '":{"firstName":"' . $row["FirstName"] .'","lastName":"' . $row["LastName"] . '","email":"' . $row["Email"] . '","phone":"' . $row["Phone"] . '","dateCreated":"' . $row["DateCreated"] . '"}';
+			$searchResults .= '"' . $row["ID"] . '":{"firstName":"' . $row["FirstName"] .'","lastName":"' . $row["LastName"] . '","email":"' . $row["Email"] . '","phone":"' . $row["Phone"] . '","profilePic":"'. $row["ProfilePicture"].'","dateCreated":"' . $row["DateCreated"] . '"}';
 		}
 		
 		if( $searchCount == 0 )
