@@ -78,7 +78,7 @@ if (!$duplicate)
     }
     else 
     {
-        echo '<h2>File size must be smaller than 6 MB. Choose a different file.</h2>';
+        echo '<h2>File size must be smaller than 20 MB. Choose a different file.</h2>';
         echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "Error."</script>';
         //echo'<a href="/profile_setting.php">Back to profile settings.</a>';
     }
