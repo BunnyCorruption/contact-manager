@@ -22,7 +22,7 @@
   document.addEventListener('DOMContentLoaded', function() 
   {
     // Comment this function call out if it is redirecting on vs code live server
-    // readCookie();
+    readCookie();
   }, false);
 
   function handlePhotoUpload(id)
@@ -74,7 +74,7 @@
             <form class="d-flex justify-content-center m-3">
               <input class="me-2 search-bar" id="searchText" type="search" placeholder="Search" aria-label="Search">
               
-              <button onclick="searchContacts();" class="btn fa-button-search"><span class="fa fa-search"></span></button>
+              <button onclick="searchContacts(); return false;" class="btn fa-button-search"><span class="fa fa-search"></span></button>
             </form>
 
             <!-- Seprate container for now for dev purposes, but the "no-results" div

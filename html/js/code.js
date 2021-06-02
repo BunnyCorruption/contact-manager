@@ -230,7 +230,7 @@ function searchContacts()
 	var contactList = "";
 	////////////////////////////////////////////////////////////////////////
 	// delete me when done ////////////////////////////////////////////////
-	userId = 9;
+	// userId = 9;
 	////////////////////////////////////////////////////////////////////////
 	var jsonPayload = '{"name" : "' + srch + '","userId" : ' + userId + '}';
 	var url = urlBase + '/Search.' + extension;
@@ -374,5 +374,7 @@ function searchContacts()
 		// document.getElementById("contactSearchResult").innerHTML = err.message;
 		console.log(err.message);
 	}
+
+	return false;
 	
 }
