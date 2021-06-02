@@ -213,6 +213,12 @@ function addContact()
 					alertString += '<strong><i class="fa fa-check-square"></i> Contact added!</strong> Visit <i class="fa fa-home"></i> Home to search for all your contacts.';
 					alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 					alertString += '</div>';
+
+					document.getElementById("addFirstName").value = "";
+					document.getElementById("addLastName").value = "";
+					document.getElementById("addPhone").value = "";
+					document.getElementById("addEmail").value = "";
+
 					$("#addAlerts").append(alertString);
 				}
 				else if (responseError == "Contact Already Exists")
