@@ -6,7 +6,7 @@ var firstName = "";
 var lastName = "";
 
 var searched = false;
-const BATCH_SIZE = 3;
+const BATCH_SIZE = 10;
 var batch_start = 0;
 var displayed_so_far = 0;
 
