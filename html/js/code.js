@@ -4,7 +4,7 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
-
+var searched = false;
 function doLogin()
 {
 	userId = 0;
@@ -164,6 +164,7 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 
 function addContact()
 {
+	
 	var newfName = document.getElementById("addFirstName").value.trim();
 	var newlName = document.getElementById("addLastName").value.trim();
 	var newPhone = document.getElementById("addPhone").value.trim();
@@ -232,7 +233,11 @@ function addContact()
 					alertString += '</div>';
 					$("#addAlerts").append(alertString);
 				}
-				
+				// This is a workaround for refreshing the results
+				if (searched)
+				{
+					searchContacts();
+				}
 				// document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
@@ -245,47 +250,89 @@ function addContact()
 	
 }
 
-function deleteContact() {
+function handleDelete(idToRemove)
+{
+	first = document.getElementById("fNameUser" + idToRemove).value;
+	last = document.getElementById("lNameUser" + idToRemove).value;
+	document.getElementById("deleteName").innerHTML = `(${first} ${last})`
+	document.getElementById("deleteButtonInsideModal").onclick = function() {deleteContact(idToRemove)};
+	$('#deleteModal').modal("toggle")
+}
 
-    if (confirm("Are you sure you want to delete this contact?")) {
+function cleanModalAndToggle()
+{
+	document.getElementById("deleteName").innerHTML = "";
+	document.getElementById("deleteButtonInsideModal").onclick = function() {return false;};
+	$('#deleteModal').modal("toggle")
+}
 
-        //Aw frick I gotta see the table to determine how we're selecting this beast to delete. To be continued.
-        var contact = document.getElementById("contactText").value;
+function deleteContact(id) {
+	//Aw frick I gotta see the table to determine how we're selecting this beast to delete. To be continued.
+	// var contact = document.getElementById("contactText").value;
 
-        document.getElementById("contactDeleteResult").innerHTML = "";
+	document.getElementById("contactDeleteResult").innerHTML = "";
 
-        var jsonPayload = '{"contactId" : ' + contactId + '}';
-        var url = urlBase + '/addUser.' + extension;
+	var jsonPayloadObj = {
+		"ID": id,
+		"userId": userId
+	};
+	var jsonPayload = JSON.stringify(jsonPayloadObj);
+	var url = urlBase + '/Delete.' + extension;
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("DELETE", url, true);
-        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-        try {
-            xhr.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("contactDeleteResult").innerHTML = "Contact has been removed.";
-                }
-            };
-            xhr.send(jsonPayload);
-        }
-        catch (err) {
-            document.getElementById("contactDeleteResult").innerHTML = err.message;
-        }
-    }
+	var xhr = new XMLHttpRequest();
+	// I wanted this to be NOT asynchronous, so it "waits" for deletion but it should be fine.
+	// also the "DELETE" http method here wasn't working, had to revert to POST
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				var responseText = JSON.parse(xhr.responseText);
+				var responseError = responseText.error;
+				if (responseError == "")
+				{
+					document.getElementById("contactDeleteResult").innerHTML = "Contact has been removed.";
+					cleanModalAndToggle();
+					document.getElementById("resultItem" +id).animate([
+						{ // from
+							opacity: 1,
+							color: "#fff"
+						},
+						{ // to
+							opacity: 0,
+							color: "#000"
+						}
+						], 300);
+						setTimeout(() => {$("#resultItem" +id).remove()}, 300);
+				}
+				else
+				{
+					document.getElementById("contactDeleteResult").innerHTML = responseError;
+				}
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("contactDeleteResult").innerHTML = err.message;
+	}
+    
     
 }
 
 function searchContacts()
 {
+	searched = true;
 	var srch = document.getElementById("searchText").value;
 	$("#searchResults").empty();
 	$("#searchResults").css("display", "block");
 
 	var contactList = "";
-	////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////
 	// delete me when done ////////////////////////////////////////////////
-	// userId = 9;
-	////////////////////////////////////////////////////////////////////////
+	userId = 9;
+	//////////////////////////////////////////////////////////////////////
 	var jsonPayload = '{"name" : "' + srch + '","userId" : ' + userId + '}';
 	var url = urlBase + '/Search.' + extension;
 	
@@ -321,7 +368,7 @@ function searchContacts()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div class="accordion-item charcoal-bg test">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
@@ -336,9 +383,9 @@ function searchContacts()
 						
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resfName+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+reslName+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
 						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resEmail+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
@@ -359,7 +406,7 @@ function searchContacts()
 						HTMLstring += 'type="button" value="Upload" />';
 						HTMLstring += '</form>';
 						HTMLstring += '<div id="successMessage'+resId+'"></div>';
-						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="openModal('+resId+')">';
+						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
 						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';

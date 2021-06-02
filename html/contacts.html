@@ -22,7 +22,7 @@
   document.addEventListener('DOMContentLoaded', function() 
   {
     // Comment this function call out if it is redirecting on vs code live server
-    readCookie();
+    // readCookie();
     document.getElementById("welcomePrompt").innerHTML = "Hi, " + firstName + "!";
   }, false);
 
@@ -118,20 +118,21 @@
   </div>    
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content modal-border charcoal-bg" style="color: white;">
         <div class="modal-header">
-          <h3 class="modal-title" id="exampleModalLabel"><i class="fa fa-exclimation-circle"></i> Are you sure?</h3>
+          <h3 class="modal-title" id="deleteModalLabel"><i class="fa fa-exclimation-circle"></i> Are you sure?</h3>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body ">
-          <p>Are you sure you would like to delete this contact? This action is permanent.</p>
+          <p>Are you sure you would like to delete this contact <span id="deleteName"></span>? This action is permanent.</p>
           <p>If you will like to proceed with this action please confirm your choice or cancel to go back.</p>
+          <span id="contactDeleteResult"></span>
         </div>
         <div class="modal-footer">
           <button type="button" class="m-1 btn fa-button-cxl" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="m-1 btn fa-button-delete">Delete Contact</button>
+          <button id="deleteButtonInsideModal" type="button" class="m-1 btn fa-button-delete">Delete Contact</button>
         </div>
       </div>
     </div>
@@ -143,7 +144,7 @@
 
 <!-- Modal Test--
   <script>
-    new bootstrap.Modal(document.getElementById('exampleModal')).toggle()
+    new bootstrap.Modal(document.getElementById('deleteModal')).toggle()
     </script>-->
     <iframe id="hidden_iframe" name="hidden_iframe" scrolling="no"></iframe>
 </body>
