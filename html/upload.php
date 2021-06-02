@@ -68,6 +68,8 @@ if (!$duplicate)
             $result = $stmt->get_result();
 
             echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "Success!"</script>';
+            echo '<script>window.parent.document.getElementById("user_picture_'.$_POST['id'].'").src = "assets/profile_pictures/'.$fname.'"</script>';
+            
         }
             
             

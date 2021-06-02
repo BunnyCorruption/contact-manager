@@ -289,7 +289,7 @@ function searchContacts()
 						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resEmail+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
 						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resPhone+'">';                                                    
-						HTMLstring += '<img class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
+						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a href="#" class="contactInfoHeader"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
 						
