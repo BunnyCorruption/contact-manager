@@ -197,7 +197,8 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
         background-image: linear-gradient(to bottom right, aqua , rgb(255, 0, 234));
     }
     .navbar-toggler{
-        margin-right: 10px !important;
+        margin-right: 8px !important;
+        margin-left: 0px !important;
     }
     .logo{
         background-image: none;
@@ -215,7 +216,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     }
 
     /* Galaxy Fold, or thinner */
-    @media screen and (max-width: 310px)
+    @media screen and (max-width: 320px)
     {
         .logo{
             font-size: large;
@@ -224,6 +225,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
             float:none;
             display: block;            
         }
+        
     }
 
     .nav-pills{
@@ -333,9 +335,21 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     display: block;
     background-color: black;
     color: aqua;
-    width: 80%;
+    width: 90%;
     max-width: 300px;
 }
+@media screen and (max-width: 360px)
+{
+    .contact-info-field{
+        font-size: 15px;
+    }
+    .upload-file{
+        font-size: 15px !important;
+    }
+}
+
+
+
 .upload-file{
     font-size: 20px;
     border: 1px solid aqua;
@@ -357,3 +371,25 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     padding: 10px;
     border-radius: 5px;
 }
+
+/* .accordion-item .accordion-button {
+    background-color: rgba(255, 0, 234, 0.63);
+    color: black;
+    font-family: KoHo, serif;
+    font-size: x-large;
+    font-weight: bold;
+} */
+.accordion-item .accordion-button {
+    font-size: x-large;
+}
+
+.uploadcontainer{
+    width: 100%;
+}
+.profilePic{
+    width: 200px;
+    height: 200px;
+    display: block;
+}
+
+

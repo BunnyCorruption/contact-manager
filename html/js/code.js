@@ -220,15 +220,20 @@ function deleteContact() {
     }
     
 }
+
 function searchContacts()
 {
 	var srch = document.getElementById("searchText").value;
-	document.getElementById("contactSearchResult").innerHTML = "";
-	
+	$("#searchResults").empty();
+	$("#searchResults").css("display", "block");
+
 	var contactList = "";
-	
-	var jsonPayload = '{"search" : "' + srch + '","contactId" : ' + contactId + '}';
-	var url = urlBase + '/searchContacts.' + extension;
+	////////////////////////////////////////////////////////////////////////
+	// delete me when done ////////////////////////////////////////////////
+	userId = 9;
+	////////////////////////////////////////////////////////////////////////
+	var jsonPayload = '{"name" : "' + srch + '","userId" : ' + userId + '}';
+	var url = urlBase + '/Search.' + extension;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -239,26 +244,135 @@ function searchContacts()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				var jsonObject = JSON.parse( xhr.responseText );
-				
-				for( var i=0; i<jsonObject.results.length; i++ )
+				// alert(xhr.responseText);
+				var jsonObject = JSON.parse(xhr.responseText);
+				var results = jsonObject.results;
+				if (results == null || Object.keys(results).length == 0)
 				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
-					}
+					var HTMLstring = "<div class=\"no-results\">No results found.</div>";
+
+					$("#searchResults").append(HTMLstring);
 				}
+				else
+				{
+					// console.log(results);
+					for (const property in results)
+					{
+						var resId = property;
+						var resfName = results[property].firstName;
+						var reslName = results[property].lastName;
+						var resPhone = results[property].email;
+						var resEmail = results[property].phone;
+						var resDate = results[property].dateCreated;
+						
+						var HTMLstring = "";
+						HTMLstring += '<div class="accordion-item charcoal-bg test">';
+						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
+						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
+						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
+						HTMLstring += 'aria-expanded="true" aria-controls="collapseOne"> ';
+						HTMLstring += `${resfName + ' ' + reslName}`;
+						HTMLstring += '</button>';
+						HTMLstring += '</h2>';
+						HTMLstring += '<div id="collapse'+resId+'" class="accordion-collapse collapse"'; 
+						HTMLstring += 'aria-labelledby="heading'+resId+'" data-bs-parent="#searchResults">';
+						HTMLstring += '<div class="accordion-body" style="border-radius: 12px;">';
+						
+						
+
+						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resfName+'">';
+						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+reslName+'">';
+						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resEmail+'">';
+						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
+						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resPhone+'">';                                                    
+						HTMLstring += '<img class="m-2 profilePic" src="http://group17.codes/assets/profile_pictures/default.webp" />';					
+						HTMLstring += '<a href="#" class="contactInfoHeader"'; 
+						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
+						
+											
+						HTMLstring += '<form style="display: none" id="photoForm'+resId+'"'; 
+						HTMLstring += 'class="input-group m-2 uploadcontainer" method="POST" action="upload.php"'; 
+						HTMLstring += 'enctype="multipart/form-data"  target="hidden_iframe">';
+						HTMLstring += '<input name="uploadedFile" type="file"'; 
+						HTMLstring += 'class="form-control contact-info-field" id="photoUpload'+resId+'">';
+						HTMLstring += '<input type="hidden" value="'+resId+'" name="id">';
+						HTMLstring += '<input onclick="handlePhotoUpload('+resId+');"'; 
+						HTMLstring += 'name="uploadButton" class="btn upload-file"'; 
+						HTMLstring += 'type="button" value="Upload" />';
+						HTMLstring += '</form>';
+						HTMLstring += '<div id="successMessage'+resId+'"></div>';
+						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="openModal('+resId+')">';
+						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
+						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
+						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '</div>';
+
+						HTMLstring += '</div>';
+						HTMLstring += '</div>'; 
+
+
+						$("#searchResults").append(HTMLstring);
+						
+					}		
+				}		
 				
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
+				// document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				// var jsonObject = JSON.parse( xhr.responseText );
+				
+				// for( var i=0; i<jsonObject.results.length; i++ )
+				// {
+				// 	contactList += jsonObject.results[i];
+				// 	if( i < jsonObject.results.length - 1 )
+				// 	{
+				// 		contactList += "<br />\r\n";
+				// 	}
+				// }
+				/*<div class="accordion-item charcoal-bg test">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed courgette" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Contact Name #1
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#searchResults">
+                  <div class="accordion-body" style="border-radius: 12px;">
+                    
+                    <button id="deleteBtn" class="m-1 btn fa-button" onclick="openModal(4)"><i class="fa fa-trash"></i> Delete</button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-pencil"></i> Edit</button>
+                    <button class="m-1 btn fa-button" onclick=""><i class="fa fa-save"></i> Save</button>
+
+                    <span class="contactInfoHeader" id="contactFirstName">First Name: </span> 
+                    <input class="m-2 contact-info-field" disabled type="text" value="fname">
+                    <span class="contactInfoHeader" id="contactLastName">Last Name: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="lname">
+                    <span class="contactInfoHeader" id="contactEmail">Email: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="email">
+                    <span class="contactInfoHeader" id="contactNumber">Phone Number: </span>
+                    <input class="m-2 contact-info-field" disabled type="text" value="phone">                                                    
+               
+                    <a href="#" class="contactInfoHeader" onclick="document.getElementById('photoForm4').style.display = 'flex';">Add a photo?</a>
+                    
+                    <form style="display: none" id="photoForm4" class="input-group m-2" method="POST" action="upload.php" enctype="multipart/form-data"  target="hidden_iframe">
+                      <input name="uploadedFile" type="file" class="form-control contact-info-field" id="photoUpload4">
+                      <input type="hidden" value="4" name="id">
+                      <input onclick="handlePhotoUpload(4);" name="uploadButton" class="btn upload-file" type="button" value="Upload" />
+                    </form>
+                    <div id="successMessage4"></div>
+                  </div>
+
+                </div>
+              </div> */
+				// document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("contactSearchResult").innerHTML = err.message;
+		// document.getElementById("contactSearchResult").innerHTML = err.message;
+		console.log(err.message);
 	}
 	
 }
