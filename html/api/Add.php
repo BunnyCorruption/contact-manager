@@ -1,5 +1,7 @@
 <?php
-    # SYNTAX: $var == variable
+  header('Access-Control-Allow-Origin: *');
+	header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+  # SYNTAX: $var == variable
   # Requested Information
   $inData = getRequestInfo();
 
