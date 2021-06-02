@@ -22,7 +22,7 @@
   document.addEventListener('DOMContentLoaded', function() 
   {
     // Comment this function call out if it is redirecting on vs code live server
-    readCookie();
+    // readCookie();
     document.getElementById("welcomePrompt").innerHTML = "Hi, " + firstName + "!";
   }, false);
 
@@ -33,10 +33,15 @@
       
   document.getElementById("photoForm" + id).submit();
       
-      
-      
-    
   }
+
+  $(window).scroll(function() {
+	if($(window).scrollTop() + $(window).height() == $(document).height()) {
+	   if (searched) searchNextBatch();
+ 
+	}
+ });
+  
 
   </script>
 
@@ -147,5 +152,7 @@
     new bootstrap.Modal(document.getElementById('deleteModal')).toggle()
     </script>-->
     <iframe id="hidden_iframe" name="hidden_iframe" scrolling="no"></iframe>
+    <div style="margin-bottom: 600px;"></div>
+
 </body>
 </html>
