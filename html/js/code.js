@@ -164,14 +164,24 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 
 function addContact()
 {
-	var newfName = document.getElementById("addFirstName").value;
-	var newlName = document.getElementById("addLastName").value;
-	var newPhone = document.getElementById("addPhone").value;
-	var newEmail = document.getElementById("addEmail").value;
+	var newfName = str.trim(document.getElementById("addFirstName").value);
+	var newlName = str.trim(document.getElementById("addLastName").value);
+	var newPhone = str.trim(document.getElementById("addPhone").value);
+	var newEmail = str.trim(document.getElementById("addEmail").value);
 	var myId = userId;
 
 	$("#addAlerts").empty();
-		
+	
+	if (newfName == "" || newlName == "" || newPhone == "" || newEmail == "")
+	{
+		alertString = "";
+		alertString += '<div id="addAlert" class="alert my-2 alert-warning alert-dismissible fade show" role="alert">';
+		alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Fields are empty!</strong> Check form fields before submitting.';
+		alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+		alertString += '</div>';
+		$("#addAlerts").append(alertString);
+	}
+
 	var jsonObjPayload = {
 		"firstName": newfName,
 		"lastName": newlName,
@@ -207,7 +217,7 @@ function addContact()
 				{
 					alertString = "";
 					alertString += '<div id="addAlert" class="alert my-2 alert-warning alert-dismissible fade show" role="alert">';
-					alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Contact Already Exists!</strong>'+ newfName +' is a direct duplicate of one of your contacts.';
+					alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Contact Already Exists!</strong>' + newfName +' is a direct duplicate of one of your contacts.';
 					alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 					alertString += '</div>';
 					$("#addAlerts").append(alertString);
