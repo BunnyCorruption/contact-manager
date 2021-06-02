@@ -180,6 +180,7 @@ function addContact()
 		alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
 		alertString += '</div>';
 		$("#addAlerts").append(alertString);
+		return false;
 	}
 
 	var jsonObjPayload = {
