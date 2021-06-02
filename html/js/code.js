@@ -164,10 +164,10 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 
 function addContact()
 {
-	var newfName = str.trim(document.getElementById("addFirstName").value);
-	var newlName = str.trim(document.getElementById("addLastName").value);
-	var newPhone = str.trim(document.getElementById("addPhone").value);
-	var newEmail = str.trim(document.getElementById("addEmail").value);
+	var newfName = document.getElementById("addFirstName").value.trim();
+	var newlName = document.getElementById("addLastName").value.trim();
+	var newPhone = document.getElementById("addPhone").value.trim();
+	var newEmail = document.getElementById("addEmail").value.trim();
 	var myId = userId;
 
 	$("#addAlerts").empty();
