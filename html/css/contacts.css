@@ -362,7 +362,9 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     max-width: 100px;
 }
 
-
+.photoLink{
+    cursor: pointer;
+}
 .no-results{
     background-color: rgba(39,34,34,0.7);
     text-align: center;
