@@ -50,7 +50,28 @@ if (!$duplicate)
         $file_success++;
         echo '<h2>Success!</h2>';
         echo '<h2>'.$_POST['id']." was the id</h2>";
-        echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "Success!"</script>';
+        echo '<script>console.log("successful file transfer");</script>';
+
+        $conn = new mysqli("localhost", "groupseventeen", "Group17Grapefruit", "CONTACTS"); 	
+        if ($conn->connect_error) 
+        {
+            echo '<script>window.parent.alert("database error.");</script>';
+        } 
+        else
+        {
+            $escaped_userId = trim($conn->real_escape_string($_POST['id']));
+
+            $stmt = $conn->prepare("UPDATE Information SET ProfilePicture = ? WHERE ID = ?");
+            $stmt->bind_param("ss", $fname, $escaped_userId);
+            $stmt->execute();
+            
+            $result = $stmt->get_result();
+
+            echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "Success!"</script>';
+        }
+            
+            
+
     }
     else 
     {
