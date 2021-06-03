@@ -7,7 +7,7 @@ var lastName = "";
 
 var searched = false;
 var showedTooltip = false;
-const BATCH_SIZE = 5;
+const BATCH_SIZE = 10;
 var batch_start = 0;
 var displayed_so_far = 0;
 // When count of 
