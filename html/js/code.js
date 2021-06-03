@@ -422,8 +422,8 @@ function searchContacts()
 						var resId = property;
 						var resfName = results[property].firstName;
 						var reslName = results[property].lastName;
-						var resPhone = results[property].email;
-						var resEmail = results[property].phone;
+						var resEmail = results[property].email;
+						var resPhone = results[property].phone;
 						var resDate = results[property].dateCreated;
 						var resPic = results[property].profilePic;
 						
@@ -443,13 +443,13 @@ function searchContacts()
 						
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resEmail+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resPhone+'">';                                                    
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
 						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
@@ -466,10 +466,11 @@ function searchContacts()
 						HTMLstring += 'type="button" value="Upload" />';
 						HTMLstring += '</form>';
 						HTMLstring += '<div id="successMessage'+resId+'"></div>';
+						HTMLstring += '<div id="editMessage'+resId+'"></div>';
 						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
-						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
 						HTMLstring += '</div>';
 
 						HTMLstring += '</div>';
@@ -562,8 +563,8 @@ function searchNextBatch()
 						var resId = property;
 						var resfName = results[property].firstName;
 						var reslName = results[property].lastName;
-						var resPhone = results[property].email;
-						var resEmail = results[property].phone;
+						var resEmail = results[property].email;
+						var resPhone = results[property].phone;
 						var resDate = results[property].dateCreated;
 						var resPic = results[property].profilePic;
 						
@@ -583,13 +584,13 @@ function searchNextBatch()
 						
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resEmail+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" disabled type="text" value="'+resPhone+'">';                                                    
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'">';                                                    
 						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
@@ -609,7 +610,7 @@ function searchNextBatch()
 						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
-						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
 						HTMLstring += '</div>';
 
 						HTMLstring += '</div>';
@@ -646,4 +647,79 @@ document.getElementById("photoForm" + id).submit();
 }
 
 
+function edit(id)
+{
+	document.getElementById("editMessage" + id).innerHTML = "";
+	document.getElementById("saveBtn" + id).disabled = false;
+	document.getElementById("fNameUser" + id).readOnly = false;
+	document.getElementById("lNameUser" + id).readOnly = false;
+	document.getElementById("emailUser" + id).readOnly = false;
+	document.getElementById("phoneUser" + id).readOnly = false;
+	document.getElementById("editBtn" + id).disabled = true;
+}
 
+function save(id)
+{
+	//Aw frick I gotta see the table to determine how we're selecting this beast to delete. To be continued.
+	// var contact = document.getElementById("contactText").value;
+
+	document.getElementById("editMessage" + id).innerHTML = "";
+
+	var fName = document.getElementById("fNameUser" + id).value.trim();
+	var lName = document.getElementById("lNameUser" + id).value.trim();
+	var email = document.getElementById("emailUser" + id).value.trim();
+	var phone = document.getElementById("phoneUser" + id).value.trim();
+	
+	if (fName == "" || lName == "" || phone == "" || email == "")
+	{
+		document.getElementById("editMessage" + id).innerHTML = "Fields cannot be empty.";
+		return;
+	}
+
+	var jsonPayloadObj = {
+		"ID": id,
+		"firstName": fName,
+		"lastName": lName,
+		"email": email,
+		"phone": phone,
+		"userId": userId
+	};
+	var jsonPayload = JSON.stringify(jsonPayloadObj);
+	var url = urlBase + '/Edit.' + extension;
+
+	var xhr = new XMLHttpRequest();
+	// I wanted this to be NOT asynchronous, so it "waits" for deletion but it should be fine.
+	// also the "DELETE" http method here wasn't working, had to revert to POST
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				var responseText = JSON.parse(xhr.responseText);
+				var responseError = responseText.error;
+				if (responseError == "")
+				{
+					document.getElementById("saveBtn" + id).disabled = true;
+					document.getElementById("fNameUser" + id).readOnly = true;
+					document.getElementById("lNameUser" + id).readOnly = true;
+					document.getElementById("emailUser" + id).readOnly = true;
+					document.getElementById("phoneUser" + id).readOnly = true;
+					document.getElementById("editBtn" + id).disabled = false;
+					document.getElementById("contactDeleteResult").innerHTML = "User updated!"
+				}
+				else
+				{
+					document.getElementById("contactDeleteResult").innerHTML = responseError;
+				}
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch (err) {
+		document.getElementById("contactDeleteResult").innerHTML = err.message;
+	}
+    
+    
+	
+}

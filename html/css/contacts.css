@@ -338,6 +338,17 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     width: 90%;
     max-width: 300px;
 }
+.contact-info-field:read-only{
+    font-size: 20px;
+    border: 1px solid rgba(0, 255, 255, 0.198);
+    border-radius: 4px; 
+    text-align: center;
+    display: block;
+    background-color: transparent;
+    color: aqua;
+    width: 90%;
+    max-width: 300px;
+}
 .nohover:hover{
     background-color: transparent !important;
     cursor: default !important;
@@ -411,8 +422,8 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     width: 100%;
 }
 .profilePic{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     display: block;
 }
 #hidden_iframe{
