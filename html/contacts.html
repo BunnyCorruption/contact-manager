@@ -34,7 +34,11 @@
   // Fetch the next batch of results when the end of page is reached.
   $(window).scroll(function() {
   if($(window).scrollTop() + $(window).height() >= ($(document).height() - 100)) {
-	 if (searched) searchNextBatch();
+    var id = $('.tab-content .active').attr('id');
+    if(id != "home") {
+        return;
+    }
+	  if (searched) searchNextBatch();
 
   }
   });
