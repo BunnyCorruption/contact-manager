@@ -416,7 +416,7 @@ function searchContacts()
 					batch_start = parseInt(count);
 					displayed_so_far = parseInt(count);
 					// console.log(results);
-					counter = 4;
+					var counter = 4;
 					for (const property in results)
 					{
 						var resId = property;
@@ -558,7 +558,7 @@ function searchNextBatch()
 				else
 				{
 					// console.log(results);
-					counter = 4;
+					var counter = 4;
 					for (const property in results)
 					{
 						var resId = property;
@@ -723,4 +723,12 @@ function save(id)
     
     
 	
+}
+
+function resetAnimation()
+{
+	var counter = 4;
+	$('#searchResults').children('.accordion-item').each(function () {
+		document.getElementById(this.id).style.animation = "load-slide "+ counter++/45 +"s linear";
+	});
 }
