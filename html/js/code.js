@@ -589,9 +589,9 @@ function searchNextBatch()
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'">';                                                    
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
 						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
