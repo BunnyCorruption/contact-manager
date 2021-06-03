@@ -608,6 +608,7 @@ function searchNextBatch()
 						HTMLstring += 'type="button" value="Upload" />';
 						HTMLstring += '</form>';
 						HTMLstring += '<div id="successMessage'+resId+'"></div>';
+						HTMLstring += '<div id="editMessage'+resId+'"></div>';
 						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
