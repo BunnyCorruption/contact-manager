@@ -209,12 +209,23 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     .fa-button{
         float:none;
         display: inline-block;
+        /* margin: 0 !important; */
+        margin-bottom: 0.25em !important;
         
     }
     .contactInfoHeader{
         display: block;
     }
 
+    @media screen and (max-width: 340px){
+        .fa-button{
+            float:none;
+            display: block;
+            /* margin: 0 !important; */
+            margin-bottom: 0.25em !important;
+            
+        }
+    }
     /* Galaxy Fold, or thinner */
     @media screen and (max-width: 320px)
     {
@@ -372,6 +383,9 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     .contact-info-field{
         font-size: 15px;
     }
+    .contact-info-field:read-only{
+        font-size: 15px;
+    }
     
     .upload-file{
         font-size: 15px !important;
@@ -485,4 +499,8 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
 /* Strange glitch with last item floating. */
 .accordion-item:last-of-type .fa-button{
     float: none;
+}
+.dateInfo{
+    margin-bottom: 20px;
+    color: grey;
 }

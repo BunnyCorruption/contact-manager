@@ -471,6 +471,7 @@ function searchContacts()
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
 						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<div class="dateInfo" id="date'+resId+'">Added on '+new Date(resDate).toLocaleDateString('en-us', {month: 'long', day: 'numeric' , year: 'numeric'}) +'</div>';
 						HTMLstring += '</div>';
 
 						HTMLstring += '</div>';
@@ -613,6 +614,7 @@ function searchNextBatch()
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
 						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<div class="dateInfo" id="date'+resId+'">Added on '+new Date(resDate).toLocaleDateString('en-us', {month: 'long', day: 'numeric' , year: 'numeric'}) +'</div>';
 						HTMLstring += '</div>';
 
 						HTMLstring += '</div>';
