@@ -706,6 +706,7 @@ function save(id)
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
+					setTimeout(() => {document.getElementById("editMessage" + id).innerHTML = "";}, 5000);
 				}
 				else
 				{
