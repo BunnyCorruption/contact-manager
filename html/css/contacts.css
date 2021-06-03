@@ -366,11 +366,13 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
 
 
 }
+
 @media screen and (max-width: 360px)
 {
     .contact-info-field{
         font-size: 15px;
     }
+    
     .upload-file{
         font-size: 15px !important;
     }
@@ -425,6 +427,20 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     width: 300px;
     height: 300px;
     display: block;
+}
+@media screen and (max-width: 425px)
+{
+    .profilePic{
+        width: 200px;
+        height: 200px;
+    }
+}
+@media screen and (max-width: 325px)
+{
+    .profilePic{
+        width: 150px;
+        height: 150px;
+    }
 }
 #hidden_iframe{
     display: none;
