@@ -428,14 +428,21 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     height: 300px;
     display: block;
 }
-@media screen and (max-width: 425px)
+@media screen and (max-width: 450px)
+{
+    .profilePic{
+        width: 250px;
+        height: 250px;
+    }
+}
+@media screen and (max-width: 405px)
 {
     .profilePic{
         width: 200px;
         height: 200px;
     }
 }
-@media screen and (max-width: 325px)
+@media screen and (max-width: 340px)
 {
     .profilePic{
         width: 150px;

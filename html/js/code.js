@@ -1,7 +1,7 @@
 var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
-var userId = 0;
+var userId = 9;
 var firstName = "";
 var lastName = "";
 
@@ -705,11 +705,11 @@ function save(id)
 					document.getElementById("emailUser" + id).readOnly = true;
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
-					document.getElementById("contactDeleteResult").innerHTML = "User updated!"
+					document.getElementById("editMessage" + id).innerHTML = "User updated!"
 				}
 				else
 				{
-					document.getElementById("contactDeleteResult").innerHTML = responseError;
+					document.getElementById("editMessage" + id).innerHTML = responseError;
 				}
 				
 			}
@@ -717,7 +717,7 @@ function save(id)
 		xhr.send(jsonPayload);
 	}
 	catch (err) {
-		document.getElementById("contactDeleteResult").innerHTML = err.message;
+		document.getElementById("editMessage").innerHTML = err.message;
 	}
     
     
