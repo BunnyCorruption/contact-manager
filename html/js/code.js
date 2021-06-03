@@ -344,6 +344,7 @@ function searchContacts()
 	var srch = document.getElementById("searchText").value;
 	$("#searchResults").empty();
 	$("#searchResults").css("display", "block");
+	$("#loadMoreButton").empty();
 
 	var contactList = "";
 	//////////////////////////////////////////////////////////////////////
@@ -381,9 +382,21 @@ function searchContacts()
 				}
 				else
 				{
+					plusButton = "";
+					plusButton += '<div class="m-2 search-header" >';
+					plusButton += '<i style="font-size: 30px;" class="fa fa-plus-circle"></i>';
+					plusButton += '</div>';
+					$("#loadMoreButton").empty();
+					$('#loadMoreButton').tooltip('enable');
+					setTimeout(() => {$('#loadMoreButton').tooltip('show');}, 1000);
+					
+					$("#loadMoreButton").append(plusButton);
+
+
 					batch_start = parseInt(count);
 					displayed_so_far = parseInt(count);
 					// console.log(results);
+					counter = 4;
 					for (const property in results)
 					{
 						var resId = property;
@@ -395,7 +408,7 @@ function searchContacts()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s ease">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
@@ -467,6 +480,7 @@ function searchNextBatch()
 {
 	
 	var srch = document.getElementById("searchText").value;
+	$('#loadMoreButton').tooltip('disable');
 	
 	//////////////////////////////////////////////////////////////////////
 	// delete me when done ////////////////////////////////////////////////
@@ -483,7 +497,7 @@ function searchNextBatch()
 	var url = urlBase + '/BatchSearch.' + extension;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -498,6 +512,16 @@ function searchNextBatch()
 				
 				displayed_so_far += parseInt(count);
 				batch_start += parseInt(count);
+				if (count == 0)
+				{
+					plusButton = '<div class="m-2 ">';
+					// plusButton += '<div class="m-2 search-header to-top" >';
+					plusButton += '<a href="#" class="to-top" > To top</a>';
+					plusButton += '</div>';
+					$("#loadMoreButton").empty();
+					$('#loadMoreButton').tooltip('disable')
+					$("#loadMoreButton").append(plusButton);
+				}
 
 				if (results == null || Object.keys(results).length == 0)
 				{
@@ -519,7 +543,7 @@ function searchNextBatch()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide 0.4s ease">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
@@ -585,4 +609,16 @@ function searchNextBatch()
 	return false;
 	
 }
+
+
+function handlePhotoUpload(id)
+{
+  if (document.getElementById("photoUpload" + id).files.length == 0)
+	return;
+	
+document.getElementById("photoForm" + id).submit();
+	
+}
+
+
 

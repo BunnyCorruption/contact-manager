@@ -419,3 +419,36 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     display: none;
 }
 
+@keyframes load-slide {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Styles for the load more button. */
+#loadMoreButton{
+    cursor: pointer;
+}
+.to-top:link {
+    text-decoration: none;
+}
+.to-top{
+    color: rgb(255, 0, 234) !important;
+    text-align: center;
+    display: block;
+}
+.to-top:hover{
+    color: white !important;
+    text-align: center;
+}
+
+
+/* Strange glitch with last item floating. */
+.accordion-item:last-of-type .fa-button{
+    float: none;
+}
