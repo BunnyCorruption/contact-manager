@@ -428,7 +428,7 @@ function searchContacts()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s linear">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/20 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
@@ -570,7 +570,7 @@ function searchNextBatch()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s linear">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/20 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
