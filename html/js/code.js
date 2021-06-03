@@ -470,7 +470,7 @@ function searchContacts()
 						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
-						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<button style="display:none" id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
 						HTMLstring += '<div class="dateInfo" id="date'+resId+'">Added on '+new Date(resDate).toLocaleDateString('en-us', {month: 'long', day: 'numeric' , year: 'numeric'}) +'</div>';
 						HTMLstring += '</div>';
 
@@ -613,7 +613,7 @@ function searchNextBatch()
 						HTMLstring += '<button id="deleteBtn'+resId+'" class="m-1 mb-3 btn fa-button" onclick="handleDelete('+resId+')">';
 						HTMLstring += '<i class="fa fa-trash"></i> Delete</button>';
 						HTMLstring += '<button id="editBtn'+resId+'" class="m-1  mb-3 btn fa-button" onclick="edit('+resId+')"><i class="fa fa-pencil"></i> Edit</button>';
-						HTMLstring += '<button id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
+						HTMLstring += '<button style="display:none" id="saveBtn'+resId+'" class="m-1 mb-3 btn fa-button" disabled onclick="save('+resId+')"><i class="fa fa-save"></i> Save</button>';
 						HTMLstring += '<div class="dateInfo" id="date'+resId+'">Added on '+new Date(resDate).toLocaleDateString('en-us', {month: 'long', day: 'numeric' , year: 'numeric'}) +'</div>';
 						HTMLstring += '</div>';
 
@@ -655,11 +655,13 @@ function edit(id)
 {
 	document.getElementById("editMessage" + id).innerHTML = "";
 	document.getElementById("saveBtn" + id).disabled = false;
+	document.getElementById("saveBtn" + id).style.display = "inherit";
 	document.getElementById("fNameUser" + id).readOnly = false;
 	document.getElementById("lNameUser" + id).readOnly = false;
 	document.getElementById("emailUser" + id).readOnly = false;
 	document.getElementById("phoneUser" + id).readOnly = false;
 	document.getElementById("editBtn" + id).disabled = true;
+	document.getElementById("editBtn" + id).style.display = "none";
 }
 
 function save(id)
@@ -701,11 +703,14 @@ function save(id)
 				if (responseError == "")
 				{
 					document.getElementById("saveBtn" + id).disabled = true;
+					document.getElementById("saveBtn" + id).style.display = "none";
 					document.getElementById("fNameUser" + id).readOnly = true;
 					document.getElementById("lNameUser" + id).readOnly = true;
 					document.getElementById("emailUser" + id).readOnly = true;
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
+					document.getElementById("editBtn" + id).style.display = "none";
+
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
 					document.getElementById("firstLast" + id).innerHTML = fName + ' ' + lName;
 					setTimeout(() => {document.getElementById("editMessage" + id).innerHTML = "";}, 5000);
