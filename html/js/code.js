@@ -709,7 +709,7 @@ function save(id)
 					document.getElementById("emailUser" + id).readOnly = true;
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
-					document.getElementById("editBtn" + id).style.display = "none";
+					document.getElementById("editBtn" + id).style.display = "inherit";
 
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
 					document.getElementById("firstLast" + id).innerHTML = fName + ' ' + lName;
