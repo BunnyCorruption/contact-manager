@@ -433,7 +433,7 @@ function searchContacts()
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
 						HTMLstring += 'aria-expanded="true" aria-controls="collapseOne"> ';
-						HTMLstring += `${resfName + ' ' + reslName}`;
+						HTMLstring += `<span id="firstLast${resId}" >${resfName + ' ' + reslName}</span>`;
 						HTMLstring += '</button>';
 						HTMLstring += '</h2>';
 						HTMLstring += '<div id="collapse'+resId+'" class="accordion-collapse collapse"'; 
@@ -575,7 +575,7 @@ function searchNextBatch()
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
 						HTMLstring += 'aria-expanded="true" aria-controls="collapseOne"> ';
-						HTMLstring += `${resfName + ' ' + reslName}`;
+						HTMLstring += `<span id="firstLast${resId}" >${resfName + ' ' + reslName}</span>`;
 						HTMLstring += '</button>';
 						HTMLstring += '</h2>';
 						HTMLstring += '<div id="collapse'+resId+'" class="accordion-collapse collapse"'; 
@@ -662,9 +662,6 @@ function edit(id)
 
 function save(id)
 {
-	//Aw frick I gotta see the table to determine how we're selecting this beast to delete. To be continued.
-	// var contact = document.getElementById("contactText").value;
-
 	document.getElementById("editMessage" + id).innerHTML = "";
 
 	var fName = document.getElementById("fNameUser" + id).value.trim();
@@ -708,6 +705,7 @@ function save(id)
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
+					document.getElementById("firstLast" + id).innerHTML = fName + ' ' + lName;
 					setTimeout(() => {document.getElementById("editMessage" + id).innerHTML = "";}, 5000);
 				}
 				else
