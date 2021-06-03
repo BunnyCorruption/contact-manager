@@ -1,7 +1,7 @@
 var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
-var userId = 0;
+var userId = 9;
 var firstName = "";
 var lastName = "";
 
@@ -428,7 +428,7 @@ function searchContacts()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s ease">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';

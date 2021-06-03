@@ -24,7 +24,7 @@
   document.addEventListener('DOMContentLoaded', function() 
   {
     // Comment this function call out if it is redirecting on vs code live server
-    readCookie();
+    // readCookie();
     document.getElementById("welcomePrompt").innerHTML = "Hi, " + firstName + "!";
   }, false);
   
@@ -90,7 +90,7 @@
               <button onclick="searchContacts(); return false;" class="btn fa-button-search"><span class="fa fa-search"></span></button>
             </form>
 
-            <div class="accordion searchResult m-2" style="border-radius: 12px; display:none;" id="searchResults">
+            <div class="accordion accordion-flush searchResult m-2" style="border-radius: 12px; display:none;" id="searchResults">
               
               
             </div>  <!-- end of search result div-->   
