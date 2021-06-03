@@ -7,9 +7,11 @@ var lastName = "";
 
 var searched = false;
 var showedTooltip = false;
-const BATCH_SIZE = 3;
+const BATCH_SIZE = 5;
 var batch_start = 0;
 var displayed_so_far = 0;
+// When count of 
+var stopPolling = false;
 
 
 function doLogin()
@@ -340,7 +342,7 @@ function searchContacts()
 {
 	batch_start = 0;
 	displayed_so_far = 0;
-	
+	stopPolling = false;
 
 	var srch = document.getElementById("searchText").value;
 	$("#searchResults").empty();
@@ -493,7 +495,11 @@ function searchNextBatch()
 	
 	var srch = document.getElementById("searchText").value;
 	$('#loadMoreButton').tooltip('disable');
-	
+
+	// This occurs when no more results are available.
+	if (stopPolling)
+		return;
+
 	//////////////////////////////////////////////////////////////////////
 	// delete me when done ////////////////////////////////////////////////
 	// userId = 9;
@@ -533,6 +539,7 @@ function searchNextBatch()
 					$("#loadMoreButton").empty();
 					$('#loadMoreButton').tooltip('disable')
 					$("#loadMoreButton").append(plusButton);
+					stopPolling = true;
 				}
 
 				if (results == null || Object.keys(results).length == 0)

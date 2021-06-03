@@ -33,7 +33,7 @@
 
   // Fetch the next batch of results when the end of page is reached.
   $(window).scroll(function() {
-  if($(window).scrollTop() + $(window).height() == $(document).height()) {
+  if($(window).scrollTop() + $(window).height() >= ($(document).height() - 100)) {
 	 if (searched) searchNextBatch();
 
   }
@@ -94,10 +94,11 @@
             <div id="loadMoreButton"data-bs-toggle="tooltip" data-bs-placement="top" title="Click, or scroll to end to load more." onclick="if (searched) searchNextBatch();" >
               
             </div>
-      </div>
+          </div>
       
-    </div>
-  </div>
+        </div>
+        <div style="margin-bottom: 200px;"></div>
+      </div> <!-- end of search tab-->
 
   
   <div class="tab-pane fade m-3" id="addContact" role="tabpanel" aria-labelledby="addContact-tab">
