@@ -6,7 +6,8 @@ var firstName = "";
 var lastName = "";
 
 var searched = false;
-const BATCH_SIZE = 10;
+var showedTooltip = false;
+const BATCH_SIZE = 3;
 var batch_start = 0;
 var displayed_so_far = 0;
 
@@ -339,7 +340,7 @@ function searchContacts()
 {
 	batch_start = 0;
 	displayed_so_far = 0;
-	searched = true;
+	
 
 	var srch = document.getElementById("searchText").value;
 	$("#searchResults").empty();
@@ -382,15 +383,26 @@ function searchContacts()
 				}
 				else
 				{
-					plusButton = "";
-					plusButton += '<div class="m-2 search-header" >';
-					plusButton += '<i style="font-size: 30px;" class="fa fa-plus-circle"></i>';
-					plusButton += '</div>';
 					$("#loadMoreButton").empty();
-					$('#loadMoreButton').tooltip('enable');
-					setTimeout(() => {$('#loadMoreButton').tooltip('show');}, 1000);
+					// Dont show the plus button when there are no more than BATCH_SIZE results.
+					if (count == BATCH_SIZE)
+					{
+						plusButton = "";
+						plusButton += '<div class="m-2 search-header" >';
+						plusButton += '<i style="font-size: 30px;" class="fa fa-plus-circle"></i>';
+						plusButton += '</div>';
+						$("#loadMoreButton").empty();
+						if (!showedTooltip)
+						{
+							$('#loadMoreButton').tooltip('enable');
+							setTimeout(() => {$('#loadMoreButton').tooltip('show');}, 1000);
+						}
+						showedTooltip = true;
+						$("#loadMoreButton").append(plusButton);
+					}
+
+					searched = true;
 					
-					$("#loadMoreButton").append(plusButton);
 
 
 					batch_start = parseInt(count);
@@ -512,7 +524,7 @@ function searchNextBatch()
 				
 				displayed_so_far += parseInt(count);
 				batch_start += parseInt(count);
-				if (count == 0)
+				if (count < BATCH_SIZE)
 				{
 					plusButton = '<div class="m-2 ">';
 					// plusButton += '<div class="m-2 search-header to-top" >';
