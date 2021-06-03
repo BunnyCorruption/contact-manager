@@ -397,7 +397,13 @@ function searchContacts()
 						if (!showedTooltip)
 						{
 							$('#loadMoreButton').tooltip('enable');
-							setTimeout(() => {$('#loadMoreButton').tooltip('show');}, 1000);
+							setTimeout(() => { 
+								var id = $('.tab-content .active').attr('id');
+								if(id != "home") {
+								return;
+								}
+								$('#loadMoreButton').tooltip('show');
+							}, 1000);
 						}
 						showedTooltip = true;
 						$("#loadMoreButton").append(plusButton);
