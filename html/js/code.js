@@ -655,7 +655,7 @@ function edit(id)
 {
 	document.getElementById("editMessage" + id).innerHTML = "";
 	document.getElementById("saveBtn" + id).disabled = false;
-	document.getElementById("saveBtn" + id).style.display = "inherit";
+	document.getElementById("saveBtn" + id).style.display = "inline-block";
 	document.getElementById("fNameUser" + id).readOnly = false;
 	document.getElementById("lNameUser" + id).readOnly = false;
 	document.getElementById("emailUser" + id).readOnly = false;
@@ -709,7 +709,7 @@ function save(id)
 					document.getElementById("emailUser" + id).readOnly = true;
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
-					document.getElementById("editBtn" + id).style.display = "inherit";
+					document.getElementById("editBtn" + id).style.display = "inline-block";
 
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
 					document.getElementById("firstLast" + id).innerHTML = fName + ' ' + lName;
