@@ -1,7 +1,7 @@
 var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
-var userId = 9;
+var userId = 0;
 var firstName = "";
 var lastName = "";
 
