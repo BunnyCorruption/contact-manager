@@ -558,6 +558,7 @@ function searchNextBatch()
 				else
 				{
 					// console.log(results);
+					counter = 4;
 					for (const property in results)
 					{
 						var resId = property;
@@ -569,7 +570,7 @@ function searchNextBatch()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
-						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide 0.4s ease">';
+						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/10 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
 						HTMLstring += 'data-bs-toggle="collapse" data-bs-target="#collapse'+resId+'"';
