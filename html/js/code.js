@@ -441,6 +441,10 @@ function searchContacts()
 						HTMLstring += '<div class="accordion-body" style="border-radius: 12px;">';
 						
 						
+						HTMLstring += '<div id="editingContainer'+resId+'" class="d-flex align-items-center editing d-none ">';
+						HTMLstring += '<strong>Editing Contact...</strong>';
+						HTMLstring += '<div class="spinner-grow text-info ms-auto" role="status" aria-hidden="true"></div>';
+						HTMLstring += '</div>';
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
@@ -584,6 +588,10 @@ function searchNextBatch()
 						HTMLstring += '<div class="accordion-body" style="border-radius: 12px;">';
 						
 						
+						HTMLstring += '<div id="editingContainer'+resId+'" class="d-flex align-items-center editing d-none">';
+						HTMLstring += '<strong>Editing Contact...</strong>';
+						HTMLstring += '<div class="spinner-grow text-info ms-auto" role="status" aria-hidden="true"></div>';
+						HTMLstring += '</div>';
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
@@ -656,6 +664,7 @@ function edit(id)
 	document.getElementById("editMessage" + id).innerHTML = "";
 	document.getElementById("saveBtn" + id).disabled = false;
 	document.getElementById("saveBtn" + id).style.display = "inline-block";
+	document.getElementById("editingContainer" + id).classList.toggle("d-none");
 	document.getElementById("fNameUser" + id).readOnly = false;
 	document.getElementById("lNameUser" + id).readOnly = false;
 	document.getElementById("emailUser" + id).readOnly = false;
@@ -710,7 +719,7 @@ function save(id)
 					document.getElementById("phoneUser" + id).readOnly = true;
 					document.getElementById("editBtn" + id).disabled = false;
 					document.getElementById("editBtn" + id).style.display = "inline-block";
-
+					document.getElementById("editingContainer" + id).classList.toggle("d-none");
 					document.getElementById("editMessage" + id).innerHTML = "User updated!"
 					document.getElementById("firstLast" + id).innerHTML = fName + ' ' + lName;
 					setTimeout(() => {document.getElementById("editMessage" + id).innerHTML = "";}, 5000);

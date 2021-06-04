@@ -493,3 +493,8 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     margin-bottom: 20px;
     color: grey;
 }
+
+.editing{
+    font-size: 20px;
+    color: whitesmoke ;
+}
