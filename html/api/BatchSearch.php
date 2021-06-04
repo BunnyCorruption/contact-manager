@@ -18,8 +18,8 @@
 		$escaped_batchSize = trim($conn->real_escape_string($inData["batchSize"]));
 		$escaped_batchStart = trim($conn->real_escape_string($inData["batchStart"]));
 
-		$stmt = $conn->prepare("SELECT * from Information where (FirstName like ? or LastName like ?) and UserID=? LIMIT ? OFFSET ?");
-		$stmt->bind_param("sssss", $escaped_name, $escaped_name, $escaped_userId, $escaped_batchSize, $escaped_batchStart);
+		$stmt = $conn->prepare("SELECT * FROM Information WHERE CONCAT(FirstName,  ' ', LastName) LIKE ? AND UserId = ? LIMIT ? OFFSET ?");
+		$stmt->bind_param("ssss", $escaped_name, $escaped_userId, $escaped_batchSize, $escaped_batchStart);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
