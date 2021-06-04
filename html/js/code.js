@@ -445,6 +445,7 @@ function searchContacts()
 						var resEmail = results[property].email;
 						var resPhone = results[property].phone;
 						var resDate = results[property].dateCreated;
+						resDate = resDate.replace(' ', 'T'); // hopefully to fix issues with dates being interpreted on iOS.
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
@@ -592,6 +593,7 @@ function searchNextBatch()
 						var resEmail = results[property].email;
 						var resPhone = results[property].phone;
 						var resDate = results[property].dateCreated;
+						resDate = resDate.replace(' ', 'T'); // hopefully to fix issues with dates being interpreted on iOS.
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
