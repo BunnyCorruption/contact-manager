@@ -447,13 +447,13 @@ function searchContacts()
 						HTMLstring += '</div>';
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="First Name" value="'+resfName+'" id="fNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Last Name" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'" id="emailUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Email" value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Phone Number" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
 						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
@@ -594,13 +594,13 @@ function searchNextBatch()
 						HTMLstring += '</div>';
 
 						HTMLstring += '<span class="contactInfoHeader" id="contactFirstName'+resId+'">First Name: </span>'; 
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resfName+'" id="fNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="First Name" value="'+resfName+'" id="fNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactLastName'+resId+'">Last Name: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+reslName+'" id="lNameUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Last Name" value="'+reslName+'" id="lNameUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactEmail'+resId+'">Email: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resEmail+'" id="emailUser'+resId+'">';
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Email"  value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
-						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
+						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Phone Number"  value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
 						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
