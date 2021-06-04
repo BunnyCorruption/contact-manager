@@ -454,7 +454,7 @@ function searchContacts()
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Email" value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Phone Number" value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
-						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
+						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic mt-3" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
 						
@@ -601,7 +601,7 @@ function searchNextBatch()
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Email"  value="'+resEmail+'" id="emailUser'+resId+'">';
 						HTMLstring += '<span class="contactInfoHeader" id="contactNumber'+resId+'">Phone Number: </span>';
 						HTMLstring += '<input class="m-2 contact-info-field" readonly type="text" placeholder="Phone Number"  value="'+resPhone+'" id="phoneUser'+resId+'">';                                                    
-						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic" src="assets/profile_pictures/'+resPic+'" />';					
+						HTMLstring += '<img id="user_picture_'+resId+'" class="m-2 profilePic mt-3" src="assets/profile_pictures/'+resPic+'" />';					
 						HTMLstring += '<a class="contactInfoHeader photoLink"'; 
 						HTMLstring += 'onclick="document.getElementById(\'photoForm'+resId+'\').style.display = \'flex\';">Add a photo?</a>';
 						
