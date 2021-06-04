@@ -430,6 +430,8 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     width: 300px;
     height: 300px;
     display: block;
+    border-radius: 5px;
+    border: 1px aqua solid;
 }
 @media screen and (max-width: 450px)
 {
