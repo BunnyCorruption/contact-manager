@@ -1,7 +1,7 @@
 var urlBase = 'http://group17.codes/api';
 var extension = 'php';
 
-var userId = 0;
+var userId = 9;
 var firstName = "";
 var lastName = "";
 
@@ -460,7 +460,7 @@ function searchContacts()
 						
 											
 						HTMLstring += '<form style="display: none" id="photoForm'+resId+'"'; 
-						HTMLstring += 'class="input-group m-2 uploadcontainer" method="POST" action="upload.php"'; 
+						HTMLstring += 'class="input-group mt-1 mb-2 uploadcontainer" method="POST" action="upload.php"'; 
 						HTMLstring += 'enctype="multipart/form-data"  target="hidden_iframe">';
 						HTMLstring += '<input name="uploadedFile" type="file"'; 
 						HTMLstring += 'class="form-control contact-info-field" id="photoUpload'+resId+'">';
@@ -607,7 +607,7 @@ function searchNextBatch()
 						
 											
 						HTMLstring += '<form style="display: none" id="photoForm'+resId+'"'; 
-						HTMLstring += 'class="input-group m-2 uploadcontainer" method="POST" action="upload.php"'; 
+						HTMLstring += 'class="input-group mt-1 mb-2 uploadcontainer" method="POST" action="upload.php"'; 
 						HTMLstring += 'enctype="multipart/form-data"  target="hidden_iframe">';
 						HTMLstring += '<input name="uploadedFile" type="file"'; 
 						HTMLstring += 'class="form-control contact-info-field" id="photoUpload'+resId+'">';
@@ -653,7 +653,12 @@ function handlePhotoUpload(id)
 {
   if (document.getElementById("photoUpload" + id).files.length == 0)
 	return;
-	
+var spinner = '';
+spinner += '<button class="btn loading" type="button">';
+spinner += '  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+spinner += '  Loading...';
+spinner += '</button>';
+document.getElementById("successMessage"+id).innerHTML = spinner;
 document.getElementById("photoForm" + id).submit();
 	
 }

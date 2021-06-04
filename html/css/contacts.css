@@ -498,3 +498,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     font-size: 20px;
     color: whitesmoke ;
 }
+.loading{
+    background-color: rgba(0, 255, 255, 0.246);
+    color: white;
+}

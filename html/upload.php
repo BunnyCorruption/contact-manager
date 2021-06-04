@@ -67,8 +67,13 @@ if (!$duplicate)
             $stmt->execute();
             
             $result = $stmt->get_result();
-
-            echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "Success!"</script>';
+            $loadedString = "";
+            $loadedString .= '<button class="btn loading" type="button">';
+            $loadedString .= '  <i class="fa fa-check"> </i>';
+            $loadedString .= '  Done!';
+            $loadedString .= '</button>';
+            echo '<script>window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = "'.$loadedString.'"</script>';
+            echo '<script>setTimeout(() => {window.parent.document.getElementById("successMessage'.$_POST['id'].'").innerHTML = ""}, 5000);</script>';
             echo '<script>window.parent.document.getElementById("user_picture_'.$_POST['id'].'").src = "assets/profile_pictures/'.$fname.'"</script>';
             
         }
