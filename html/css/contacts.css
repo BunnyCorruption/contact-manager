@@ -431,6 +431,7 @@ box-shadow: 0 0 0 30px rgba(27, 67,67) inset !important;
     height: 300px;
     display: block;
     border-radius: 5px;
+    object-fit: cover;
 }
 @media screen and (max-width: 450px)
 {

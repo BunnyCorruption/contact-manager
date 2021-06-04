@@ -192,6 +192,26 @@ function addContact()
 		$("#addAlerts").append(alertString);
 		return false;
 	}
+	if (!ValidateEmail(newEmail))
+	{
+		alertString = "";
+		alertString += '<div id="addAlert" class="alert my-2 alert-warning alert-dismissible fade show" role="alert">';
+		alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Invalid email format!</strong> Please check this field.';
+		alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+		alertString += '</div>';
+		$("#addAlerts").append(alertString);
+		return false;
+	}
+	if (!ValidatePhone(newPhone))
+	{
+		alertString = "";
+		alertString += '<div id="addAlert" class="alert my-2 alert-warning alert-dismissible fade show" role="alert">';
+		alertString += '<strong><i class="fa fa-exclamation-triangle"></i> Invalid phone format!</strong> Only standard formats are allowed.';
+		alertString += '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+		alertString += '</div>';
+		$("#addAlerts").append(alertString);
+		return false;
+	}
 
 	var jsonObjPayload = {
 		"firstName": newfName,
@@ -689,7 +709,15 @@ function save(id)
 	
 	if (fName == "" || lName == "" || phone == "" || email == "")
 	{
-		document.getElementById("editMessage" + id).innerHTML = "Fields cannot be empty.";
+		document.getElementById("editMessage" + id).innerHTML = "Check for empty fields.";
+		return;
+	}
+	if (!ValidateEmail(email)){
+		document.getElementById("editMessage" + id).innerHTML = "Invalid email.";
+		return;
+	}
+	if (!ValidatePhone(phone)){
+		document.getElementById("editMessage" + id).innerHTML = "Invalid phone number.";
 		return;
 	}
 
@@ -753,3 +781,16 @@ function resetAnimation()
 		document.getElementById(this.id).style.animation = "load-slide "+ counter++/45 +"s linear";
 	});
 }
+
+// Found this at https://www.w3resource.com/javascript/form/email-validation.php
+function ValidateEmail(email) 
+{
+ return (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email));
+
+}
+
+function ValidatePhone(phone)
+{
+	return (/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(phone));
+}
+
