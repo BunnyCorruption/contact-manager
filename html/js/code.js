@@ -269,10 +269,10 @@ function addContact()
 					$("#addAlerts").append(alertString);
 				}
 				// This is a workaround for refreshing the results
-				// if (searched)
-				// {
-				// 	searchContacts();
-				// }
+				if (searched)
+				{
+					searchContacts();
+				}
 				// Dismiss alerts after 8 seconds.
 				setTimeout(() => {$("#addAlerts").empty();}, 8000);
 				// document.getElementById("contactAddResult").innerHTML = "Contact has been added";
@@ -449,6 +449,11 @@ function searchContacts()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
+						if (document.getElementById('resultItem'+resId) != null)
+						{
+							console.log("duplicate in searchContacts");
+							continue;
+						}
 						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/20 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
@@ -601,6 +606,11 @@ function searchNextBatch()
 						var resPic = results[property].profilePic;
 						
 						var HTMLstring = "";
+						if (document.getElementById('resultItem'+resId) != null)
+						{
+							console.log("duplicate in searchNextBatch");
+							continue;
+						}
 						HTMLstring += '<div id="resultItem'+resId+'" class="accordion-item charcoal-bg test" style="animation:load-slide '+ counter++/20 +'s linear">';
 						HTMLstring += '                <h2 class="accordion-header" id="heading'+resId+'">';
 						HTMLstring += '<button class="accordion-button collapsed courgette" type="button"';
