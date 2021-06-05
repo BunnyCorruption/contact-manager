@@ -269,10 +269,10 @@ function addContact()
 					$("#addAlerts").append(alertString);
 				}
 				// This is a workaround for refreshing the results
-				if (searched)
-				{
-					searchContacts();
-				}
+				// if (searched)
+				// {
+				// 	searchContacts();
+				// }
 				// Dismiss alerts after 8 seconds.
 				setTimeout(() => {$("#addAlerts").empty();}, 8000);
 				// document.getElementById("contactAddResult").innerHTML = "Contact has been added";
@@ -556,6 +556,10 @@ function searchNextBatch()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
+				if (stopPolling)
+				{
+					return;
+				}
 				// alert(xhr.responseText);
 				var jsonObject = JSON.parse(xhr.responseText);
 				var results = jsonObject.results;
