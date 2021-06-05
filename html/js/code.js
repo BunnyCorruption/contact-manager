@@ -385,7 +385,7 @@ function searchContacts()
 	var url = urlBase + '/BatchSearch.' + extension;
 	
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
