@@ -23,12 +23,27 @@
       <input id=userPassword type="password" placeholder="Input Password"><br>
       <span id="loginResult"></span>
       <h3>If you do not have a login, please <a href=register.html><em>register</em></a>.</h3>
-      <button type="button" id="loginButton" class="btn btn-outline" onclick="doLogin();">Log In</button><br>
+      <button type="button" id="loginButton" class="btn btn-outline" onclick="delayLogin();">Log In</button><br>
       
     </div>
   </div>
 </body>
 <script>
-document.getElementById("userPassword").addEventListener("keydown", (e) => { if (e.key == 'Enter') doLogin()});
+
+var previous = 0;
+const DELAY_MS = 1000;
+
+document.getElementById("userPassword").addEventListener("keydown", (e) => { if (e.key == 'Enter') delayLogin();});
+
+function delayLogin()
+{
+  if (previous >= (Date.now() - DELAY_MS))
+    return;
+  else
+    previous = Date.now();
+
+  doLogin();
+}
+
 </script>
 </html>
