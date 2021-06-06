@@ -41,10 +41,12 @@ function doLogin()
 			{
 				var jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
-		
+				error = jsonObject.error;
+				
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "\nUser/Password combination incorrect";
+					// document.getElementById("loginResult").innerHTML = "\nUser/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = error;
 					return;
 				}
 		
@@ -129,6 +131,12 @@ function doRegistration() //This bad boi will be pertinent to the register.html
     var email = document.getElementById("regEmail").value;
     var userLogin = document.getElementById("regUserLogin").value;
     var password = document.getElementById("regPassword").value;
+	var passConfirm = document.getElementById("regPasswordConfirm").value;
+	if (password != passConfirm)
+	{
+		document.getElementById("registrationResult").innerHTML = "Passwords do not match!";
+		return;
+	}
     var hash = md5(password); 
 	document.getElementById("registrationResult").innerHTML = "";
 	
@@ -153,7 +161,7 @@ function doRegistration() //This bad boi will be pertinent to the register.html
 
 				var statusString = "";
 				if (errorMessage === "")
-					statusString = "User has been added";
+					statusString = "Registration successful!";
 				else
 					statusString = errorMessage;
 
