@@ -793,8 +793,16 @@ function save(id)
 function resetAnimation()
 {
 	var counter = 4;
+	// This happens each time add contact tab is clicked. If there are 5000 elements
+	// then this is not very performant at all. The whole point of this was 
+	// so that all the tiles load nicely at once when switched back. It is only
+	// necessary to change the animations of those in view.
+	var limit_count = 0;
+	var limit = 40;
 	$('#searchResults').children('.accordion-item').each(function () {
-		document.getElementById(this.id).style.animation = "load-slide "+ counter++/45 +"s linear";
+		limit_count++;
+		if (limit_count != limit)
+			document.getElementById(this.id).style.animation = "load-slide "+ counter++/45 +"s linear";
 	});
 }
 
