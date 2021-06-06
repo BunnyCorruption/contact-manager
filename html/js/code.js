@@ -801,7 +801,7 @@ function resetAnimation()
 	var limit = 40;
 	$('#searchResults').children('.accordion-item').each(function () {
 		limit_count++;
-		if (limit_count != limit)
+		if (limit_count <= limit)
 			document.getElementById(this.id).style.animation = "load-slide "+ counter++/45 +"s linear";
 	});
 }
